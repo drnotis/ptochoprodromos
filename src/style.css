@@ -284,17 +284,21 @@ details summary {
 
 table.synoptic {
   border-collapse: collapse;
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
+  table-layout: fixed;
   font-size: 1.05rem;
 }
 
 table.synoptic th,
 table.synoptic td {
+  width: 280px;
   padding: 0.35rem 0.9rem;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--border);
   line-height: 1.65;
+  overflow-wrap: break-word;
 }
 
 table.synoptic thead th {
@@ -303,17 +307,24 @@ table.synoptic thead th {
   background: var(--paper-raised);
   color: var(--accent);
   border-bottom: 2px solid var(--border);
+  z-index: 1;
+}
+
+table.synoptic thead th.col-n {
+  z-index: 2;
 }
 
 table.synoptic td.col-n,
 table.synoptic th.col-n {
   position: sticky;
   left: 0;
+  width: 3.6rem;
   background: var(--paper-raised);
   color: var(--muted);
   font-size: 0.85rem;
   white-space: nowrap;
   border-right: 1px solid var(--border);
+  z-index: 1;
 }
 
 table.synoptic tr:hover td {
