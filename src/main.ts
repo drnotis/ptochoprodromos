@@ -5,18 +5,76 @@ import { renderLine, attachTooltips } from "./tei";
 
 const poems = poemsData as Poem[];
 
+type Mode = "single" | "synoptic";
+
 interface State {
   poemIndex: number;
   witness: string;
   showSic: boolean;
   query: string;
+  mode: Mode;
+  compare: string[];
 }
 
+function defaultCompare(poem: Poem): string[] {
+  return poem.witnesses.slice(0, 2).map((w) => w.id);
+}
+
+function poemIndexById(id: string): number {
+  const i = poems.findIndex((p) => p.id === id);
+  return i === -1 ? 0 : i;
+}
+
+// --- URL hash (deep links): #poem=poem2&n=57&witness=H&sic=0&mode=single&compare=G,H
+function parseHash(): { state: Partial<State>; n: string | null } {
+  const params = new URLSearchParams(location.hash.replace(/^#/, ""));
+  const poemId = params.get("poem");
+  const partial: Partial<State> = {};
+  if (poemId) partial.poemIndex = poemIndexById(poemId);
+  const poem = poems[partial.poemIndex ?? 0];
+  if (params.has("witness")) partial.witness = params.get("witness")!;
+  if (params.has("sic")) partial.showSic = params.get("sic") === "1";
+  const mode = params.get("mode");
+  if (mode === "single" || mode === "synoptic") partial.mode = mode;
+  if (params.has("compare")) {
+    partial.compare = params
+      .get("compare")!
+      .split(",")
+      .filter((id) => poem.witnesses.some((w) => w.id === id));
+  }
+  return { state: partial, n: params.get("n") };
+}
+
+function serializeHash(s: State, n?: string): string {
+  const poem = poems[s.poemIndex];
+  const params = new URLSearchParams();
+  params.set("poem", poem.id);
+  if (n !== undefined) params.set("n", n);
+  if (s.mode === "synoptic") {
+    params.set("mode", "synoptic");
+    params.set("compare", s.compare.join(","));
+  } else {
+    params.set("witness", s.witness);
+  }
+  if (s.showSic) params.set("sic", "1");
+  return "#" + params.toString();
+}
+
+function syncHash(n?: string): void {
+  const hash = serializeHash(state, n);
+  history.replaceState(null, "", hash);
+}
+
+const { state: fromHash, n: initialFocusLine } = parseHash();
+const initialPoem = poems[fromHash.poemIndex ?? 0] ?? poems[0];
+
 const state: State = {
-  poemIndex: 0,
-  witness: poems[0].defaultWitness,
-  showSic: false,
+  poemIndex: fromHash.poemIndex ?? 0,
+  witness: fromHash.witness ?? initialPoem.defaultWitness,
+  showSic: fromHash.showSic ?? false,
   query: "",
+  mode: fromHash.mode ?? "single",
+  compare: fromHash.compare ?? defaultCompare(initialPoem),
 };
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -45,9 +103,10 @@ poems.forEach((poem, poemIndex) => {
   });
 });
 
-function render(): void {
+function render(focusN?: string | null): void {
   const poem = currentPoem();
   app.innerHTML = "";
+  syncHash();
 
   const header = document.createElement("header");
   header.className = "app-header";
@@ -67,6 +126,8 @@ function render(): void {
     btn.addEventListener("click", () => {
       state.poemIndex = i;
       state.witness = poems[i].defaultWitness;
+      state.mode = "single";
+      state.compare = defaultCompare(poems[i]);
       render();
     });
     tabs.append(btn);
@@ -76,26 +137,70 @@ function render(): void {
   const search = buildSearch();
   app.append(search);
 
+  if (poem.witnesses.length > 1) {
+    const modeTabs = el("div", { class: "mode-tabs" });
+    (
+      [
+        ["single", "Ενιαία προβολή"],
+        ["synoptic", "Παράλληλη προβολή"],
+      ] as [Mode, string][]
+    ).forEach(([m, label]) => {
+      const btn = el("button", { class: "mode-tab" + (state.mode === m ? " active" : "") }, label);
+      btn.addEventListener("click", () => {
+        state.mode = m;
+        render();
+      });
+      modeTabs.append(btn);
+    });
+    app.append(modeTabs);
+  }
+
   const controls = el("div", { class: "controls" });
 
-  const witnessSelect = el("select", { class: "witness-select", "aria-label": "Χειρόγραφο" });
-  poem.witnesses.forEach((w) => {
-    const opt = el("option", { value: w.id }, witnessLabel(poem, w.id));
-    if (w.id === state.witness) opt.setAttribute("selected", "true");
-    witnessSelect.append(opt);
-  });
-  witnessSelect.addEventListener("change", () => {
-    state.witness = witnessSelect.value;
-    renderLines();
-  });
-  controls.append(labelWrap("Χειρόγραφο:", witnessSelect));
+  if (state.mode === "single") {
+    const witnessSelect = el("select", { class: "witness-select", "aria-label": "Χειρόγραφο" });
+    poem.witnesses.forEach((w) => {
+      const opt = el("option", { value: w.id }, witnessLabel(poem, w.id));
+      if (w.id === state.witness) opt.setAttribute("selected", "true");
+      witnessSelect.append(opt);
+    });
+    witnessSelect.addEventListener("change", () => {
+      state.witness = witnessSelect.value;
+      render();
+    });
+    controls.append(labelWrap("Χειρόγραφο:", witnessSelect));
+  } else {
+    const wrap = el("div", { class: "compare-checks" });
+    wrap.append(el("span", { class: "compare-label" }, "Σύγκριση:"));
+    poem.witnesses.forEach((w) => {
+      const label = el("label", { class: "compare-check" });
+      const checkbox = el("input", { type: "checkbox" }) as HTMLInputElement;
+      checkbox.checked = state.compare.includes(w.id);
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          if (!state.compare.includes(w.id)) state.compare.push(w.id);
+        } else if (state.compare.length > 1) {
+          state.compare = state.compare.filter((id) => id !== w.id);
+        } else {
+          checkbox.checked = true; // keep at least one column
+          return;
+        }
+        // keep column order = witness list order
+        state.compare = poem.witnesses.map((w) => w.id).filter((id) => state.compare.includes(id));
+        render();
+      });
+      label.append(checkbox, ` ${w.id}`);
+      wrap.append(label);
+    });
+    controls.append(wrap);
+  }
 
   const sicLabel = el("label", { class: "sic-toggle" });
   const sicCheckbox = el("input", { type: "checkbox" }) as HTMLInputElement;
   sicCheckbox.checked = state.showSic;
   sicCheckbox.addEventListener("change", () => {
     state.showSic = sicCheckbox.checked;
-    renderLines();
+    render();
   });
   sicLabel.append(sicCheckbox, " εμφάνιση γραφής χειρογράφου (πριν τη διόρθωση)");
   controls.append(sicLabel);
@@ -112,19 +217,75 @@ function render(): void {
     app.append(details);
   }
 
-  const linesWrap = el("div", { class: "lines", id: "lines-wrap" });
-  app.append(linesWrap);
-  renderLines();
+  app.append(state.mode === "synoptic" ? buildSynoptic(poem) : buildSingle(poem));
 
-  function renderLines(): void {
-    linesWrap.innerHTML = "";
-    poem.lines.forEach((line, idx) => {
-      const row = el("div", { class: "line", id: `l-${state.poemIndex}-${idx}` });
-      row.append(el("span", { class: "line-n" }, line.n));
-      row.append(renderLine(line.node, { witness: state.witness, showSic: state.showSic }));
-      linesWrap.append(row);
-    });
+  const targetN = focusN ?? initialFocusLine;
+  if (targetN) {
+    const idx = poem.lines.findIndex((l) => l.n === targetN);
+    if (idx !== -1) {
+      requestAnimationFrame(() => {
+        const rowEl = document.getElementById(`l-${state.poemIndex}-${idx}`);
+        rowEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+        rowEl?.classList.add("highlight");
+        setTimeout(() => rowEl?.classList.remove("highlight"), 2500);
+      });
+    }
   }
+}
+
+function permalinkButton(n: string): HTMLElement {
+  const btn = el("button", { class: "permalink", "aria-label": "Σύνδεσμος στίχου " + n }, "🔗");
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const hash = serializeHash(state, n);
+    history.replaceState(null, "", hash);
+    navigator.clipboard?.writeText(location.origin + location.pathname + hash).catch(() => {});
+    btn.textContent = "✓";
+    setTimeout(() => (btn.textContent = "🔗"), 1200);
+  });
+  return btn;
+}
+
+function buildSingle(poem: Poem): HTMLElement {
+  const linesWrap = el("div", { class: "lines" });
+  poem.lines.forEach((line, idx) => {
+    const row = el("div", { class: "line", id: `l-${state.poemIndex}-${idx}` });
+    row.append(permalinkButton(line.n));
+    row.append(el("span", { class: "line-n" }, line.n));
+    row.append(renderLine(line.node, { witness: state.witness, showSic: state.showSic }));
+    linesWrap.append(row);
+  });
+  return linesWrap;
+}
+
+function buildSynoptic(poem: Poem): HTMLElement {
+  const outer = el("div", { class: "synoptic-wrap" });
+  const table = el("table", { class: "synoptic" });
+  const thead = el("thead");
+  const headRow = el("tr");
+  headRow.append(el("th", { class: "col-n" }, ""));
+  state.compare.forEach((id) => {
+    headRow.append(el("th", { title: witnessLabel(poem, id) }, id));
+  });
+  thead.append(headRow);
+  table.append(thead);
+
+  const tbody = el("tbody");
+  poem.lines.forEach((line, idx) => {
+    const row = el("tr", { id: `l-${state.poemIndex}-${idx}` });
+    const nCell = el("td", { class: "col-n" });
+    nCell.append(permalinkButton(line.n), el("span", {}, line.n));
+    row.append(nCell);
+    state.compare.forEach((id) => {
+      const cell = el("td", { class: "col-text" });
+      cell.append(renderLine(line.node, { witness: id, showSic: state.showSic }));
+      row.append(cell);
+    });
+    tbody.append(row);
+  });
+  table.append(tbody);
+  outer.append(table);
+  return outer;
 }
 
 function buildSearch(): HTMLElement {
@@ -158,12 +319,8 @@ function buildSearch(): HTMLElement {
       item.addEventListener("click", () => {
         state.poemIndex = m.poemIndex;
         state.witness = poems[m.poemIndex].defaultWitness;
-        render();
-        requestAnimationFrame(() => {
-          document
-            .getElementById(`l-${m.poemIndex}-${m.lineIndex}`)
-            ?.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
+        state.mode = "single";
+        render(m.n);
       });
       results.append(item);
     });
@@ -210,4 +367,4 @@ function el<K extends keyof HTMLElementTagNameMap>(
 }
 
 attachTooltips();
-render();
+render(initialFocusLine);

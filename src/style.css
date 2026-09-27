@@ -119,6 +119,48 @@ body {
   color: var(--muted);
 }
 
+.mode-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.mode-tab {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  background: var(--paper-raised);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.mode-tab.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.compare-checks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.compare-label {
+  color: var(--muted);
+}
+
+.compare-check {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -210,6 +252,84 @@ details summary {
 
 .line-text {
   flex: 1;
+}
+
+.permalink {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: 0.28rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  opacity: 0;
+  padding: 0 0.2rem;
+}
+
+.line:hover .permalink,
+.permalink:focus {
+  opacity: 0.55;
+}
+
+.permalink:hover {
+  opacity: 1;
+}
+
+.synoptic-wrap {
+  background: var(--paper-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+table.synoptic {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.05rem;
+}
+
+table.synoptic th,
+table.synoptic td {
+  padding: 0.35rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.65;
+}
+
+table.synoptic thead th {
+  position: sticky;
+  top: 0;
+  background: var(--paper-raised);
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+}
+
+table.synoptic td.col-n,
+table.synoptic th.col-n {
+  position: sticky;
+  left: 0;
+  background: var(--paper-raised);
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-right: 1px solid var(--border);
+}
+
+table.synoptic tr:hover td {
+  background: #fbf4e2;
+}
+
+table.synoptic tr:hover td.col-n {
+  background: #fbf4e2;
+}
+
+table.synoptic .permalink {
+  opacity: 0;
+}
+
+table.synoptic tr:hover .permalink {
+  opacity: 0.55;
 }
 
 .corr {
