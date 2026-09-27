@@ -29,9 +29,30 @@ body {
   padding: 1.5rem 1rem 4rem;
 }
 
+.app-header {
+  position: relative;
+}
+
+.credit {
+  position: absolute;
+  top: 0.2rem;
+  right: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+}
+
+.credit:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .app-header h1 {
   font-size: 1.7rem;
   margin: 0 0 0.15rem;
+  padding-right: 8rem;
 }
 
 .subtitle {
@@ -395,5 +416,13 @@ table.synoptic tr:hover .permalink {
   }
   .line-n {
     flex: 0 0 2rem;
+  }
+  .credit {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+  }
+  .app-header h1 {
+    padding-right: 0;
   }
 }

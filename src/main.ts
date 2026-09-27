@@ -110,7 +110,13 @@ function render(focusN?: string | null): void {
 
   const header = document.createElement("header");
   header.className = "app-header";
+  const credit = el(
+    "a",
+    { class: "credit", href: "https://www.drtou.de", target: "_blank", rel: "noopener" },
+    "made by drtou with claude",
+  );
   header.append(
+    credit,
     el("h1", {}, "Ηλεκτρονικός Πτωχοπρόδρομος"),
     el("p", { class: "subtitle" }, "Διαδραστική παράλληλη έκδοση των τριών ποιημάτων"),
   );
