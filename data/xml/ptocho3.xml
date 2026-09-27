@@ -1,0 +1,2211 @@
+<?xml-stylesheet href="../src/vmachine.xsl" type="text/xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:svg="http://www.w3.org/2000/svg" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Το τρίτο ποίημα </title>
+
+      </titleStmt>
+      <publicationStmt>
+        <p>Παράλληλη ηλεκτρονική έκδοση των εφτά εκδοχών του τρίτου Πτωχοπροδρομικού ποιήματος.</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <bibl>Hans Eideneier (εκδ.), Πτωχοπρόδρομος, Ηράκλειο: Πανεπιστημιακές εκδόσεις Κρήτης 2012. </bibl>
+        <listWit>
+
+          <witness xml:id="S">Paris. gr. Suppl. 1034, fol. 169r-175v <date>a. 1363/1364</date>
+            <desc>Χρησιμοποιείται στην έκδοση Eideneier ως οδηγητικό χειρόγραφο για το τρίτο
+              ποίημα.</desc></witness>
+          <witness xml:id="A">Adrianop. 1237 = Μουσείο Μπενάκη 48, fol. 2r-8r <date>16ος
+              αιώνας</date></witness>
+          <witness xml:id="C">Paris. Coislin. 382, fol. 142r-148v <date>15ος αιώνας</date></witness>
+          <witness xml:id="G"> Paris. gr. 396, fol. 698r-704r <date>14ος αιώνας</date></witness>
+          <witness xml:id="M">Monac. gr. 525, fol. 65v-66r <date>14ος αιώνας</date>
+          </witness>
+          <witness xml:id="P">Paris. gr. 1310, fol. 429v-434r <date>15ος αιώνας</date></witness>
+          <witness xml:id="K">Constantinop. Serail 35, fol. 118r-129r <date>a. 1461</date></witness>
+
+        </listWit>
+
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+
+      <variantEncoding location="internal" method="location-referenced"/>
+      <editorialDecl>
+        <p>Όλες οι μεταγραφές των χειρογράφων έγιναν με βάση το κριτικό υπόμνημα της έκδοσης <ref
+            target="http://www.cup.gr/%CE%A0%CE%A4%CE%A9%CE%A7%CE%9F%CE%A0%CE%A1%CE%9F%CE%94%CE%A1%CE%9F%CE%9C%CE%9F%CE%A3_p-279867.aspx"
+            >Eideneier</ref>, εκτός από λίγες περιπτώσεις στις οποίες έγινε αντιπαραβολή με τα
+          χειρόγραφα (σχετική αναφορά γίνεται πάντα στις σημειώσεις).</p>
+        <p>Ανασυγκροτείται το κείμενο όπως απαντά στα χειρόγραφα και όχι το κείμενο της έκδοσης
+          Eideneier. Κάθε χειρόγραφο αντιμετωπίζεται ως αυτόνομη εκδοχή του κειμένου. Διορθώσεις του
+          εκδότη ή άλλων ερευνητών έχουν κωδικοποιηθεί και εμφανίζονται με ειδική μορφοποίηση
+          (διακεκομμένη υπογράμμιση).</p>
+      </editorialDecl>
+    </encodingDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <l n="tit">
+          <app>
+            <lem wit="#Eid">Στίχοι τοῦ Θεοδώρου τοῦ Πτωχοπροδρόμου πρὸς τὸν βασιλέα κὺρ Μανουὴλ τὸν
+              Κομνηνόν</lem>
+            <rdg wit="#S">Στίχοι τοῦ Θεοδώρου τοῦ Πτωχοπροδρόμου πρὸς τὸν βασιλέα κὺρ Μανουὴλ τὸν
+              Κομνηνόν</rdg>
+            <rdg wit="#A">Μανουὴλ τὸν Πορφυρογέννητον</rdg>
+            <rdg wit="G">Τοῦ αὐτοῦ πρὸς τὸν βασιλέα</rdg>
+            <rdg wit="#M">Theodori Prodromi ad Manuelem Comnenum versus politici</rdg>
+            <rdg wit="#P">Πτωχοπρόδρομος</rdg>
+            <rdg wit="#K">Τοῦ σοφωτάτου δὲ Θεοδώρου τοῦ Πτωχοπροδρόμου στίχοι ἀστεῖοι πρὸς τὸν
+              εὐτυχῆ καὶ ἀνδρειότατον βασιλέα κὺρ Μανουὴλ τὸν Πορφυρογέννητον</rdg>
+            <rdg wit="#C">void</rdg>
+          </app>
+        </l>
+
+        <l n="1">
+          <app>
+            <lem wit="#Eid">Τολμήσας μόλις, βασιλεῦ, δέσποτα στεφηφόρε,</lem>
+            <rdg wit="#P #K">μόλις τολμήσας,</rdg>
+            <rdg wit="#S #A #C">Τολμήσας μόλις,</rdg>
+          </app>
+          <app>
+            <rdg wit="#P #K #S #A #C">βασιλεῦ, δέσποτα στεφηφόρε</rdg>
+          </app>
+        </l>
+
+        <l n="2">
+          <app>
+            <rdg wit="#K #A #S #C #P">σκηπτοῦχε κομνηνόβλαστε, κράτιστε κοσμοκράτορ,</rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+        </l>
+        <l n="3">
+          <app>
+            <rdg wit="#C #S #A">τῇ σκέπῃ τῶν χρυσέων σου</rdg>
+            <rdg wit="#P #K">ὑπὸ τὴν σκέπην σῶν χρυσῶν</rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #S #A #P #K">προσέρχομαι πτερύγων,</rdg>
+          </app>
+        </l>
+        <l n="4">
+          <app>
+            <rdg wit="#K #A #S #C #P"><app>
+                <rdg wit="#C #P #K">καθικετεύων,</rdg>
+                <rdg wit="#S #A"><choice>
+                    <sic>καθικετεύειν</sic>
+                    <corr resp="Eideneier">καθικετεύων</corr>
+                  </choice>,<note type="critical">O εκδότης προτιμά τη γραφή καθικετεύων των χφ. C,
+                    P και K</note></rdg>
+              </app> ἐξαιτῶν, παρακαλῶν ὁ τάλας</rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+        </l>
+        <l n="5">
+          <app>
+            <rdg wit="#G #M">void</rdg>
+            <rdg wit="#S #A #C #P #K">
+              <app>
+                <rdg wit="#S #A #C #P">τὰς ἀκοὰς <app>
+                    <rdg wit="#S #A #C">προσθεῖναι</rdg>
+                    <rdg wit="#P">προθεῖναι</rdg>
+                  </app>
+                </rdg>
+                <rdg wit="#K">ἀκοὰς σου πρόσθης</rdg>
+              </app>
+              <app>
+                <rdg wit="#A #S #C"> μοι τῆς σῆς ἀνακτορίας,</rdg>
+                <rdg wit="#K #P">μοι σῆς ἀνακρατορίας</rdg>
+              </app>
+            </rdg>
+          </app>
+        </l>
+        <l n="6">
+          <app>
+            <rdg wit="#S #A #C">ὅπως λεπτομερέστερον τὸ κατ’ ἐμὲ λαλήσω.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="7">
+          <app>
+            <rdg wit="#S #A #C"> Μόλις ποτὲ παραδραμὼν τὴν θάλασσαν τοῦ βίου</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="8">
+          <app>
+            <rdg wit="#S #A #C">τὴν οὕτω κατακλύζουσαν καὶ συμβυθίζουσάν με</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="9">
+          <app>
+            <rdg wit="#S #A #C"> πρὸς τὸν κοσμοσωτήριον προσέδραμον λιμένα,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="10">
+          <app>
+            <rdg wit="#S #A #C">τὸν τῆς χριστομιμήτου σου μεγάλης βασιλείας,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="11">
+          <app>
+            <rdg wit="#S #A #C">σὺ γὰρ λιμὴν ἀκύμαντος τῶν σοὶ προσπεφευγότων·</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="12">
+          <app>
+            <rdg wit="#S #A #C">μόλις λιπὼν τὸ πέλαγος τῶν ἁλμυρῶν φροντίδων</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="13">
+          <app>
+            <rdg wit="#S #A #C">ἔφθασα πρὸς τὸ πέλαγος τῶν εὐεργετημάτων.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="14">
+          <app>
+            <rdg wit="#S #A #C"> Σὺ γὰρ ἐλέους εἶ πηγὴ καὶ τῶν χαρίτων χάρις</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="15">
+          <app>
+            <rdg wit="#S #A #C"> καὶ πέλαγος χρηστότητος καὶ τῆς φιλανθρωπίας,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="16">
+          <app>
+            <rdg wit="#S #A #C">σὺ κράτος τῶν ρηγιναρχῶν, τῶν τοπαρχῶν αὐτάναξ,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="17">
+          <app>
+            <rdg wit="#S #A #C">ἐπὶ δὲ τῷ τετράνακτι, τῷ τετραυγουστομόρφῳ</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="18">
+          <app>
+            <rdg wit="#S #A #C">Ρώμης τῆς νέας τῆς χρυσῆς, τῆς Κωνσταντίνου Ρώμης,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="19">
+          <app>
+            <rdg wit="#S #A #C"> τῷ <app>
+                <rdg wit="#S #A">γόνῳ</rdg>
+                <rdg wit="#C">γόνει</rdg>
+              </app> τῷ τοῦ κράτους σου νέμειν καὶ τῆς πορφύρας</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="20">
+          <app>
+            <rdg wit="#S #A #C">μερῶν τεσσάρων τῶν τῆς γῆς καὶ <app>
+                <rdg wit="#S #C #A"><choice>
+                    <sic>κράτος</sic>
+                    <corr resp="Reinsch">κράτωρ</corr>
+                  </choice></rdg>
+              </app> κηρυχθήσῃ,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="21">
+          <app>
+            <rdg wit="#S #A #C">αὐτὸς γὰρ τὸ τετραύγουστον <app>
+                <rdg wit="#S #A">ἐκ τῆς</rdg>
+                <rdg wit="#C">καὶ τῆς</rdg>
+              </app> προσηγορίας</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="22">
+          <app>
+            <rdg wit="#S #A #C"> σταυροῦ τὴν τετραμέρειαν <app>
+                <rdg wit="#S #A">πάντως παρασημαίνων·</rdg>
+                <rdg wit="#C">πάντας παρασημαίνει·</rdg>
+              </app></rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="23">
+          <app>
+            <rdg wit="#S #A #C"> ὡς γοῦν ὁ τύπος τοῦ σταυροῦ τετραμερὴς τυγχάνει,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="24">
+          <app>
+            <rdg wit="#S #A #C"> οὕτω καὶ σὺ τετραμερῆ κατακρατήσας κόσμον</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="25">
+          <app>
+            <rdg wit="#S #A #C">ἐπὶ τῷ τετραυγούστῳ μοι τῷ πορφυρογεννήτῳ·</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="26">
+          <app>
+            <rdg wit="#S #A #C"> ὅμως δὲ σύ, τετραύγουστε, τοῦ τετραυγούστου δίχα</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="27">
+          <app>
+            <rdg wit="#S #A #C">σκῆπτρα κρατύνεις κραταιῶς τῆς μονοκρατορίας</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="28">
+          <app>
+            <rdg wit="#S #A #C"> τριάδι συνεργούμενος τῇ θεαρχικωτάτῃ.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="29">
+          <app>
+            <rdg wit="#S #A #C"> Ἂν γάρ τινες τῶν ἐν ἀρχῇ, τῶν μὴ καλῶς φρονούντων,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="30">
+          <app>
+            <rdg wit="#S #A #C"> τὸ καθ’ ἡμᾶς φρονήσωσιν καὶ <app>
+                <rdg wit="#S"><choice>
+                    <sic>περιθραυθηθοῦσιν</sic>
+                    <corr resp="Hatzidakis">περιθρασυνθῶσιν</corr>
+                  </choice></rdg>
+                <rdg wit="#C #A"><choice>
+                    <sic>περιθραυθηθῶσι</sic>
+                    <corr resp="Hatzidakis">περιθρασυνθῶσιν</corr>
+                  </choice></rdg>
+              </app>, </rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="31">
+          <app>
+            <rdg wit="#S #A #C">καὶ νεύσας μόνον κατ’ αὐτῶν μόνῳ τῷ νεύματί σου,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="32">
+          <app>
+            <rdg wit="#S #A #C">ὡσεὶ καπνὸς πορεύσονται πόρρω τοῦ σοῦ προσώπου,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="33">
+          <app>
+            <rdg wit="#S #A #C">
+              <app>
+                <rdg wit="#S #A">πτοούμενοι</rdg>
+                <rdg wit="#C">πτοούμενος</rdg>
+              </app> τὴν σύγκαυσιν, μονάρχα μονοκράτορ,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="34">
+          <app>
+            <rdg wit="#S #A #C">τῇ λάμψει τοῦ προσώπου σου μήπως κατακαῶσιν,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="35">
+          <app>
+            <rdg wit="#S #A #C"> καθώσπερ τήκεται κηρὸς ἀπὸ πυρὸς προσώπου,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="36">
+          <app>
+            <rdg wit="#S #A #C"> ὡς πρὸ μικροῦ πεπόνθασιν Δαντόνης καὶ Μελίας</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="37">
+          <app>
+            <rdg wit="#S #A #C"> καὶ Νουραδῖνος σὺν αὐτοῖς ἐξ ἄκρας τῆς ἀνοίας,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="38">
+          <app>
+            <rdg wit="#S #A #C"> ὥσπερ ἐκεῖνος Νεεμὰν ὁ πρὶν ἀποστατήσας.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="39">
+          <app>
+            <rdg wit="#S #A #C">Ἀλλὰ πρὸς τὸ προκείμενον καὶ πάλιν ἐπανέλθω. </rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="40">
+          <app>
+            <rdg wit="#S #A #C"> Μόλις ρυσθεὶς τῶν δυσχερῶν βιοτικῶν φροντίδων,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="41">
+          <app>
+            <rdg wit="#S #A #C"> τῶν καταποντιζόντων με καὶ καταβυθιζόντων,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="42">
+          <app>
+            <rdg wit="#S #A #C"> συντόμως ἦλθον, ὡς ὁρᾶς, ὡς ἀπὸ τῶν κυμάτων</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="43">
+          <app>
+            <rdg wit="#S #A #C #P #K"> πρὸς κράτος τὸ γαλήνιον τῆς αὐτοκρατορίας, </rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+        </l>
+        <l n="44">
+          <app>
+            <rdg wit="#P">ὄρμος σὺ γὰρ ὁ γαληνὸς πάντων τῶν ἐν ἀνάγκαις. </rdg>
+            <rdg wit="#S #A #C #K"> πρὸς ὅρμον καὶ ἀνάπαυλαν πάντων τῶν <app>
+                <rdg wit="#S #A #C">ἐν ἀνάγκαις</rdg>
+                <rdg wit="#K">ἐνάγγαις</rdg>
+              </app>. </rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+        </l>
+        <l n="45">
+          <app>
+            <rdg wit="#S #A #C"> Ἀλλὰ μὴ κλείσῃς ἀκοὰς μηδὲ ἀποστραφῇς <app>
+                <rdg wit="#S #A">μοι </rdg>
+                <rdg wit="C">με</rdg>
+              </app>
+            </rdg>
+            <rdg wit="#P #K">καὶ μὴ μὲ κλείσῃς ἀκοὰς τὰς βασιλικωτάτας</rdg>
+            <rdg wit="#G #M">void</rdg>
+          </app>
+        </l>
+        <l n="46">
+          <app>
+            <rdg wit="#S #A #C">τὸν δοῦλον καὶ οἰκέτην σου, τὸν κατηχρειωμένον.</rdg>
+            <rdg wit="#P #K">μηδὲν σὸν ἀποστρέψῃς με δοῦλον κατησχυμένον</rdg>
+          </app>
+        </l>
+        <l n="47">
+          <app>
+            <rdg wit="#S #A #C">Εἰ γὰρ καὶ λέξων <app>
+                <rdg wit="#S #A">ἤρχομουν </rdg>
+                <rdg wit="C">ἠρχόμην</rdg>
+              </app> μυθοπλαστῶν τοὺς λόγους,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="48">
+          <app>
+            <rdg wit="#S #A #C"> εὐλύτως εἶχες, βασιλεῦ, πάντων ἐκ τούτων <app>
+                <rdg wit="#A">λύσιν<note type="critical">Ο Eideneier προτιμά τη γραφή λύσιν του χφ.
+                    Α αντί της γραφής λύειν του οδηγητικού χειρόγραφου S. </note></rdg>
+                <rdg wit="#S #C">λύειν<note type="critical">Ο εκδότης προτιμά τη γραφή λύσιν του χφ.
+                    Α. </note></rdg>
+              </app>, </rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="49">
+          <app>
+            <rdg wit="#S #A #C">ἐν σοὶ γὰρ <app>
+                <rdg wit="#S #A">ἐκατοίκησεν</rdg>
+                <rdg wit="#C">ἐγκατοίκησεν</rdg>
+              </app> ἡ τοῦ θεοῦ προνοία, </rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="50">
+          <app>
+            <rdg wit="#S #A #C">ἡ Σολομῶντος ἄρρητος θεόσοφος σοφία.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="51">
+          <app>
+            <rdg wit="#S #A #C">Ἀλλ’ ἄρχομαι τὰ κατ’ ἐμὲ τῷ κράτει σου γνωρίσαι</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="52">
+          <app>
+            <rdg wit="#S #A #C">καὶ πόσην ὁ τρισάθλιος <app>
+                <rdg wit="#S #A">ἐπέστην</rdg>
+                <rdg wit="#C">ὑπέστην</rdg>
+              </app> τὴν ζημίαν</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="53">
+          <app>
+            <rdg wit="#S #A #C"> ἐκ τοῦ μαθεῖν με γράμματα καὶ βίβλους ἀναγνῶναι</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="54">
+          <app>
+            <rdg wit="#S #A #C"> καὶ τῶν ἀρχαίων μυθουργῶν τὰς ληρομυθουργίας,</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="55">
+          <app>
+            <rdg wit="#S #A #C">ἐνταῦθα τοίνυν ἐξ ἀρχῆς τὰ κατ’ ἐμὲ <app>
+                <rdg wit="#S #C">γνωρίσω</rdg>
+                <rdg wit="#A">γνωρίζω</rdg>
+              </app>.</rdg>
+            <rdg wit="#G #M #P #K">void</rdg>
+          </app>
+        </l>
+        <l n="56">
+          <app>
+            <rdg wit="#S #A #C">Ἀπὸ μικροῦ</rdg>
+            <rdg wit="#G #M #P #K">Ἀπὸ μικρόθεν</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C #K #P #G #M">μὲ ἔλεγεν ὁ γέρων ὁ πατήρ μου·</rdg>
+          </app>
+        </l>
+        <l n="57"><app>
+            <rdg wit="#C #A #S #M #P #K">«Τέκνον μου,</rdg>
+            <rdg wit="#G">Παιδίν μου,</rdg>
+          </app>μάθε γράμματα, <app>
+            <rdg wit="#K #S #A #G #C #M"><app>
+                <rdg wit="#K #P #M #S #A #G">καὶ</rdg>
+                <rdg wit="#C">
+                  <note type="critical">Το χφ. C παραλείπει τη λέξη «καὶ» που απαντά σε όλα τα άλλα
+                    χειρόγραφα.</note>
+                </rdg>
+              </app>
+              <app>
+                <rdg wit="#C #G #A #S #P #K">ὡσὰν</rdg>
+                <rdg wit="#M">σὰν</rdg>
+              </app> ἐσέναν ἔχει,</rdg>
+            <rdg wit="#P">ἂν θέλεις νὰ ’φελέσῃς</rdg>
+          </app></l>
+        <l n="58"> βλέπεις <app>
+            <rdg wit="#K #P #S #A #G #C">τὸν δεῖνα,</rdg>
+            <rdg wit="#M">ἐκεῖνον,</rdg>
+          </app> τέκνον μου, πεζὸς <app>
+            <rdg wit="#C #G #A #S ">περιεπάτει,</rdg>
+            <rdg wit="#M #P #K">ἐπεριπάτει</rdg>
+          </app></l>
+        <l n="58-1">
+          <app>
+            <rdg wit="#P #K">καὶ τώρα, βλέπεις, γέγονεν <app>
+                <rdg wit="#P">χρυσοφτερνιστηράτος</rdg>
+                <rdg wit="#K">λαμπρὸς ἐνδεδυμένος</rdg>
+                <note type="critical">Ο στίχος παραδίδεται μόνο από τα χειρόγραφα P και K.</note>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="59">
+          <app>
+            <rdg wit="#S #A #C #G #M">καὶ τώρα <app>
+                <rdg wit="#S #A #C"><choice>
+                    <sic>ἔνι</sic>
+                    <corr resp="Eideneier">ἒν</corr>
+                  </choice>
+                </rdg>
+                <rdg wit="#G #M"><note type="critical">Τα χφ. G και M παραλείπουν τη λέξη «ἔνι» που
+                    παραδίδουν τα χφ S, A και C.</note></rdg>
+              </app> διπλοεντέλινος καὶ παχυμουλαράτος.</rdg>
+            <rdg wit="#P #K">ἀλογοτριπλοεντέλινος καὶ παχυμουλαράτος</rdg>
+          </app>
+        </l>
+        <l n="60">
+          <app>
+            <rdg wit="#K #P #M #C #A #S">Αὐτός, <app>
+                <rdg wit="#K #M #C #A #S">ὅταν</rdg>
+                <rdg wit="#P">ὅνταν</rdg>
+              </app>
+              <app>
+                <rdg wit="#K #C #A #S">ἐμάνθανεν,</rdg>
+                <rdg wit="#M #P">ἐμάθανεν</rdg>
+              </app></rdg>
+            <rdg wit="#G"> Ὅταν ἐμάνθανεν αὐτός,</rdg>
+          </app>
+          <app>
+            <rdg wit="#P #C #G #S">ὑπόδησιν</rdg>
+            <rdg wit="#A #K">ὑπόδεσιν</rdg>
+            <rdg wit="#M">ὑποδησιὰν</rdg>
+          </app> οὐκ εἶχεν,</l>
+        <l n="61">
+          <app>
+            <rdg wit="#S #A #C">καὶ τώρα, βλέπε τον, φορεῖ τὰ μακρομύτικά του.</rdg>
+            <rdg wit="#G #M #P #K">καὶ τώρα, βλέπεις τον, φορεῖ τὰ μακρυμυτικά του</rdg>
+          </app>
+        </l>
+        <l n="62">
+          <app>
+            <rdg wit="#G #M">Αὐτὸς ὅταν <app>
+                <rdg wit="#G">ἐμάνθανε</rdg>
+                <rdg wit="#M">ἐμάθανεν</rdg>
+              </app> λουτροῦ θύραν οὐκ <app>
+                <rdg wit="#G">οἶδε</rdg>
+                <rdg wit="M">εἶδεν</rdg>
+              </app></rdg>
+            <rdg wit="#A #C #K #P #S">Αὐτὸς μικρὸς οὐδέν εἰδεν <app>
+                <rdg wit="#A #C #S">τὸ τοῦ λοετροῦ κατώφλιν</rdg>
+                <rdg wit="#P">τοῦ λουτροῦ τὸ κατώφλιν</rdg>
+                <rdg wit="#K">ὁλοετροῦ κατώφλιν</rdg>
+              </app>,</rdg>
+          </app>
+        </l>
+        <l n="63"> καὶ τώρα <app>
+            <rdg wit="#S #A #G #M">λουτρακίζεται</rdg>
+            <rdg wit="#C #P #K">λουτρικίζεται</rdg>
+          </app>
+          <app>
+            <rdg wit="#K #P #C #G #A #S">τρίτον τὴν ἑβδομάδαν</rdg>
+            <rdg wit="#M">τὴν ἑβδομάδαν τρίτον</rdg>
+          </app>·</l>
+        <l n="64">
+          <app>
+            <rdg wit="#S #A #K">ὁ κόλπος του ἐβουρβούρυζεν φθείρας ἀμυγδαλάτας,</rdg>
+            <rdg wit="#G #P #C">αὐτὸς ὁ <app>
+                <rdg wit="#G #C">κόλπος</rdg>
+                <rdg wit="#P">κόρφος</rdg>
+              </app> του ἔγεμε <app>
+                <rdg wit="#G">φθείρας</rdg>
+                <rdg wit="#C #P">ψείρας</rdg>
+              </app> ἀμυγδαλάτας,</rdg>
+            <rdg wit="#M">αὐτὸς πάντοτε ἔγεμεν ὁ κόλπος του τὰς φθείρας</rdg>
+          </app>
+        </l>
+        <l n="64-1">
+          <app>
+            <rdg wit="#K">καὶ τώρα, βλέπεις, γέγονεν λαμπρὸς ἐνδεδυμένος<note type="critical">Στο
+                χφ. Κ επαναλαμβάνεται εδώ ο στίχος 58-1.</note></rdg>
+            <rdg wit="#P #C #G #M #S #A"/>
+          </app>
+        </l>
+        <l n="65">
+          <app>
+            <rdg wit="#A #S #C #K #P">καὶ τώρα <app>
+                <rdg wit="#A #S #C #K">τὰ νομίσματα</rdg>
+                <rdg wit="#P">τὰ ὑπέρπυρα</rdg>
+              </app> γέμει τὰ μανοηλάτα·</rdg>
+            <rdg wit="#G #M">καὶ τώρα γέμει ὁ κόλπος του ὑπὲρ <app>
+                <rdg wit="#G">μανουλάτα</rdg>
+                <rdg wit="#M">μανοηλάτα</rdg>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="66">
+          <app>
+            <rdg wit="#M #G #C #S #A">τσάντσαλον εἶχεν στούπινον, καβάδιν λερωμένον,</rdg>
+            <rdg wit="#P #K">καβάδιν εἶχεν <app>
+                <rdg wit="#P">στούπινον τσαντσαλοφορεμένον</rdg>
+                <rdg wit="#K">τσούπινον, τσατσάλιν λερωμένον</rdg>
+              </app>
+            </rdg>
+          </app>
+        </l>
+        <l n="67">
+          <app>
+            <rdg wit="#K #A #S #G #M #C #P">κ’ ἐφόρει το μονάλλαγος <app>
+                <rdg wit="#K #A #S #G #M">χειμῶνα</rdg>
+                <rdg wit="#C #P">χειμὸν καὶ</rdg>
+              </app> καλοκαίριν,</rdg>
+          </app>
+        </l>
+        <l n="68"> καὶ τώρα, βλέπεις, γέγονε <app>
+            <rdg wit="#C #M #G #S #A">λαμπρὸς καὶ λουρικάτος,</rdg>
+            <rdg wit="#P">λαμπροπουκαμισάτος</rdg>
+            <rdg wit="#K">λαμπρὸς ἐπιλουρικάτος</rdg>
+          </app></l>
+        <l n="69"> παραγεμιστοτράχηλος, <app>
+            <rdg wit="#S #A #G #M #C">μεταξοσφικτουράτος.</rdg>
+            <rdg wit="#K">καβαδοσφικτουράτος</rdg>
+            <rdg wit="#P">κ’ ἐμορφοπροσωπάτος</rdg>
+          </app></l>
+        <l n="70">
+          <app>
+            <rdg wit="#P #M #S #G #C #A">Αὐτός</rdg>
+            <rdg wit="#K">Οὗτος</rdg>
+          </app>, <app>
+            <rdg wit="#A #C #G #S #K #M">ὅταν</rdg>
+            <rdg wit="#P">ὅνταν</rdg>
+          </app>
+          <app>
+            <rdg wit="#K #S #G #C #A">ἐμάνθανε</rdg>
+            <rdg wit="#M #P">ἐμάθανεν</rdg>
+          </app>, <app>
+            <rdg wit="#A #C #G #M #S">ποτέ του οὐκ ἐκτενίσθην,</rdg>
+            <rdg wit="#P">ποτὲ δὲν ἐκτενίσθην,</rdg>
+            <rdg wit="#K">ποτὲ οὐκ ἐκτενίσθην,</rdg>
+          </app></l>
+        <l n="71"> καὶ τώρα <app>
+            <rdg wit="#S #A #C #M"><choice>
+                <sic>ἔνι</sic>
+                <corr resp="Eideneier">ἐν</corr>
+              </choice></rdg>
+            <rdg wit="#K #G #P">ἔνι <!-- χρειάζεται να ελεγχθεί το χειρόγραφο --></rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #G #K #C">καλοκτένιστος</rdg>
+            <rdg wit="#P">καλοχτένιστος</rdg>
+            <rdg wit="#M">καλοτριχαράτος</rdg>
+          </app> καὶ <app>
+            <rdg wit="#C #K #M #A #S">καμαροτριχάρης</rdg>
+            <rdg wit="#P">μαυροτριχαράτος</rdg>
+            <rdg wit="#G">καλοκαβαλάρης</rdg>
+          </app>.</l>
+        <l n="72"> Καὶ πείσθητι γεροντικοῖς καὶ πατρικοῖς σου λόγοις</l>
+        <l n="73">
+          <app>
+            <rdg wit="#S #A #C">καὶ μάθε γράμματα καὶ σὺ</rdg>
+            <rdg wit="#G #M #P #K">καὶ μάθε τὰ γραμματικὰ,</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #A #S #K #M #G">καὶ ὡσὰν ἐσέναν ἔχει.</rdg>
+            <rdg wit="#P">ἂν θέλεις νὰ ’φελέσῃς.</rdg>
+          </app>
+        </l>
+        <l n="74"><app>
+            <rdg wit="#P #G #M #S #A #C">Ἂν γὰρ πεισθῇς</rdg>
+            <rdg wit="#K">ἀναρπισθεις<note type="critical">Η γραφή του χφ. Κ δεν είναι
+                έλλογη.</note></rdg>
+          </app> ταῖς συμβουλαῖς καὶ τοῖς διδάγμασί μου,</l>
+        <l n="75">
+          <app>
+            <rdg wit="#C #A #S #G">σὺ μὲν μεγάλως τιμηθῇς,</rdg>
+            <rdg wit="#K #M #P">μὲν <app>
+                <rdg wit="#M #K">πολλὰ</rdg>
+                <rdg wit="#P">λοιπὸν</rdg>
+              </app> νὰ τιμηθῇς,</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #S #A #C">πολλὰ νὰ</rdg>
+            <rdg wit="#P #M #K">μεγάλως νὰ</rdg>
+          </app> εὐτυχήσῃς, </l>
+        <l n="76">
+          <app>
+            <rdg wit="#C #A #S #G #P">ἐμὲ δὲ τὸν πατέρα σου</rdg>
+            <rdg wit="#K">ἐμὲ τὸν γὰρ πατέρα σου</rdg>
+            <rdg wit="#M">ἐμὲ δὲ τὸν ταλαίπωρον</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #S #A #C">κὰν ἐν τῇ τελευτῇ μου,</rdg>
+            <rdg wit="#P">κἂν ἐν τοῖς τελευτοῖς μου</rdg>
+            <rdg wit="#M">καὶ πρὸ τῆς τελευτῆς μου</rdg>
+            <rdg wit="#K">νὰ θρέψῃς εἰς τὸ γῆρας</rdg>
+          </app>
+        </l>
+        <l n="77"> νὰ θρέψῃς ὡς <app>
+            <rdg wit="#A #S #G #C">ταλαίπωρον</rdg>
+            <rdg wit="#M #P #K">ἀδύνατον</rdg>
+          </app> καὶ νὰ <app>
+            <rdg wit="#C #G #S #A">γηροτροφήσῃς</rdg>
+            <rdg wit="#K">γεροτροφήσῃς</rdg>
+            <rdg wit="#M">γηροβοσκήσῃς</rdg>
+            <rdg wit="#P">γεροβοσκήσῃς</rdg>
+          </app>.«</l>
+        <l n="78"> Ὡς <app>
+            <rdg wit="#A #S #G #C #P #M">δ’</rdg>
+            <rdg wit="#K"/>
+          </app>
+          <app>
+            <rdg wit="#K #P #C #G #S #A">ἤκουσα τοῦ γέροντος,</rdg>
+            <rdg wit="#M">ἤκουσα τὴν συμβουλὴν,</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #A #S #G #C #P">δέσποτα,</rdg>
+            <rdg wit="#K">δεσπότου</rdg>
+          </app> τοῦ πατρός μου,</l>
+        <l n="79"> τοῖς γὰρ γονεῦσι πείθεσθαι <app>
+            <rdg wit="#P #C #G #S #A #M">φησὶ τὸ θεῖον γράμμα,</rdg>
+            <rdg wit="#K">τὸ θεῖον γράμμα λέγει,</rdg>
+          </app></l>
+        <l n="80">
+          <app>
+            <rdg wit="#K #M #A #S #C #P">ἔμαθα τὰ γραμματικὰ πλὴν μετὰ κόπου πόσου.</rdg>
+            <rdg wit="#G">καὶ ἔμαθον τὰ γραμματικὰ μετὰ πολλοῦ τοῦ κόπου.</rdg>
+          </app>
+        </l>
+        <l n="81"><app>
+            <rdg wit="#A #C #S">Ἀφοῦ δὲ γέγονα κἀγὼ</rdg>
+            <rdg wit="#G #K #M #P">Ἀφοῦ δὲ τάχα γέγονα</rdg>
+          </app> γραμματικὸς τεχνίτης,</l>
+        <l n="82">
+          <app>
+            <rdg wit="#S #P #M #G  #A #C">ἐπιθυμῶ</rdg>
+            <rdg wit="#K">ἀπεθυμῶ</rdg>
+          </app> καὶ <app>
+            <rdg wit="#K #C #M #A #G #S">τὸ ψωμὶν καὶ τοῦ ψωμιοῦ τὴν μάνναν</rdg>
+            <rdg wit="#P">ψωμὶν καὶ κύταλον καὶ ψίχαν</rdg>
+          </app>,</l>
+        <l n="83"> καὶ διὰ τὴν πείναν τὴν πολλὴν καὶ τὴν στενοχωρίαν</l>
+        <l n="84">
+          <app>
+            <rdg wit="#S #G #A #M #C #K">ὑβρίζω τὰ γραμματικά, λέγω μετὰ δακρύων·</rdg>
+            <rdg wit="#P">ὑβρίζω τὴν γραμματικὴν καὶ κλαίγω καὶ φωνάζω</rdg>
+          </app>
+        </l>
+        <l n="85"> »᾿Ανάθεμαν <app>
+            <rdg wit="#P #C #M #A #G #S">τὰ γράμματα</rdg>
+            <rdg wit="#K">καὶ τὰ γραμματικά <!-- check reading! --></rdg>
+          </app>, Χριστέ, καὶ ὁποὺ τὰ θέλει,</l>
+        <l n="86"> ἀνάθεμαν καὶ τὸν καιρὸν καὶ ἐκείνην τὴν ἡμέραν,</l>
+        <l n="87">
+          <app>
+            <rdg wit="#K #S #G #A #M #C">καθ’ ἣν μὲ παρεδώκασιν εἰς τὸ διδασκαλεῖον,</rdg>
+            <rdg wit="#P">ὁπου μὲ παρεδώκασιν εἰς τὸ σκολειὸν ἐμέναν</rdg>
+          </app>
+        </l>
+        <l n="88"> πρὸς τὸ νὰ μάθω γράμματα, <app>
+            <rdg wit="#C #M #A #G #S #K">τάχα νὰ ζῶ</rdg>
+            <rdg wit="#P">τάχα νὰ μάθω</rdg>
+          </app> ἀπ’ ἐκεῖνα.«</l>
+        <l n="89">
+          <app>
+            <rdg wit="#K #S #A #C #P">Ἐδάρε καὶ τὰ γράμματα,</rdg>
+            <rdg wit="#M">ἔδα παρὰ τὰ γράμματα,</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #C #A #S">ἂν μὲ ἔποισαν τεχνίτην,</rdg>
+            <rdg wit="#P #K">καὶ <app>
+                <rdg wit="#K">μάνθανα</rdg>
+                <rdg wit="#P">μάθανα</rdg>
+              </app> τεχνίτης</rdg>
+            <rdg wit="#G">Ἐδάρε τότε ἂν μ’ ἔποικαν τεχνίτην χρυσοράπτην</rdg>
+          </app>
+        </l>
+        <l n="90"> ἀπ’ αὔτους ὁποὺ <app>
+            <rdg wit="#P #K #M #S #A #C">κάμνουσιν</rdg>
+            <rdg wit="#G">κάμνωσι</rdg>
+          </app> τὰ κλαπωτὰ καὶ <app>
+            <rdg wit="#G #C #A #S #M">ζῶσιν,</rdg>
+            <rdg wit="#P #K">ζοῦσιν,</rdg>
+          </app></l>
+        <l n="91">
+          <app>
+            <rdg wit="#K #P #M #S #A #C">νὰ ἔμαθα</rdg>
+            <rdg wit="#G">καὶ ἔμαθα</rdg>
+          </app>
+          <app>
+
+            <rdg wit="#P #C #A #S #K #M">τέχνην κλαπωτὴν καὶ <app>
+                <rdg wit=" #C #A #S #K">νὰ ἔζουν</rdg>
+                <rdg wit="#M #P">νά ’ζουν</rdg>
+              </app>
+              <app>
+                <rdg wit="#M #K #S #A #C">ἀπ’ ἐκείνην,</rdg>
+                <rdg wit="#P">μετ’ ἐκείνην,</rdg>
+              </app></rdg>
+            <rdg wit="#G">τέχνην κλαπωτὴν τὴν περιφρονημένην</rdg>
+          </app>
+        </l>
+        <l n="91-1">
+          <app>
+            <rdg wit="#M">καὶ μετ’ αὐτὴν τὴν κλαπωτὴν τὴν περιφρονουμένην</rdg>
+            <rdg wit="#P #K">μὲ ταύτην γὰρ τὴν κλαπωτὴν τὴν <app>
+                <rdg wit="#P">περισωρεμένην</rdg>
+                <rdg wit="#K">περισωρευομένην</rdg>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="92">
+          <app>
+            <rdg wit="#G">οὐ μὴ ἤνοιγα τὸ ἀρμάριν μου καὶ ηὕρισκα ὅτι γέμει </rdg>
+            <rdg wit="#K #P #M #S #A #C">νὰ <app>
+                <rdg wit="#M #S #A #C">ἤνοιγα</rdg>
+                <rdg wit="#P #K">ἄνοιγα</rdg>
+              </app> τὸ ἀρμάριν μου, νὰ τὸ <app>
+                <rdg wit="#S">ηὕρισκα</rdg>
+                <rdg wit="#A #C #K">εὕρισκα</rdg>
+                <rdg wit="#M #P">τό ’βρισκα</rdg>
+              </app>
+              <app>
+                <rdg wit="#P #M #S #C #A">γεμάτον,</rdg>
+                <rdg wit="#K">γεομάτο,<note type="critical">Η γραφή «γεομάτο» του χφ. Κ δεν είναι
+                    έλλογη.</note></rdg>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="93"> ψωμίν, κρασὶν πληθυντικὸν καὶ <app>
+            <note type="critical">Ο εκδότης επιλέγει τη γραφή του χφ. G.</note>
+            <rdg wit="#G">θυννομαγειρείαν</rdg>
+            <rdg wit="#M">θυννομαγειρείας</rdg>
+            <rdg wit="#P">θυννομαγερείαν</rdg>
+            <rdg wit="#A #S #C">θύνναν μαγειρείαν</rdg>
+            <rdg wit="#K">θύννας μαγερείας</rdg>
+          </app></l>
+        <l n="94"> καὶ παλαμιδοκόμματα καὶ <app>
+            <rdg wit="#C #S #M #G #A #P">τσίρους</rdg>
+            <rdg wit="#K">κίρους<note type="critical">Μη έλλογη γραφή, πιθανή υπερδιόρθωση της
+                γράφης «τσίρους» των υπόλοιπων χφφ.</note></rdg>
+          </app> καὶ σκουμπρία,</l>
+        <l n="95">
+          <app>
+            <rdg wit="#A #S #C">παρ’ ὅτι τώρα</rdg>
+            <rdg wit="#K #P">παρ’ οὗ ὅτι τώρα</rdg>
+            <rdg wit="#M">παρ’ οὗ τώρα</rdg>
+            <rdg wit="#G">παρ’ οὗ</rdg>
+          </app> ἀνοίγω το, βλέπω τοὺς πάτους ὅλους,</l>
+        <l n="96"> καὶ βλέπω <app>
+            <rdg wit="#S #A #P #G #M #C">χαρτοσάκκουλα γεμάτα τὰ χαρτία,</rdg>
+            <rdg wit="#K">χαρτοσάκκουλον γεμάτον μὲ χαρτία,</rdg>
+          </app></l>
+        <l n="97">
+          <app>
+            <rdg wit="#S #A #C">καὶ</rdg>
+            <rdg wit="#G #M #P #K"/>
+          </app> ἀνοίγω <app>
+            <rdg wit="#C #A #S #K #P #M">καὶ</rdg>
+            <rdg wit="#G"/>
+          </app> τὴν <app>
+            <rdg wit="#M #P #K #S #A #C">ἄρκλαν</rdg>
+            <rdg wit="#G">ἀρκλίτσαν</rdg>
+          </app> μου, νὰ <app>
+            <rdg wit="#G #C #A #S #K #M">εὕρω</rdg>
+            <rdg wit="#P">βρῶ</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #S #A #C">ψωμὶν νὰ φάγω,</rdg>
+            <rdg wit="#G #P #K">ψωμίν κομμάτιν,</rdg>
+          </app></l>
+        <l n="98"> καὶ <app>
+            <rdg wit="#C #A #S #M #K #G">εὑρίσκω</rdg>
+            <rdg wit="#P">βρίσκω</rdg>
+          </app> χαρτοσάκκουλον ἄλλον μικροτερίτσιν,</l>
+        <l n="99"> γυρεύω τοῦ κελλίου μου <app>
+            <rdg wit="#G #K #M #S #A #C">τὰς τέσσαρας γωνίας,</rdg>
+            <rdg wit="#P">τὲς τέσσαρες γωνίες,</rdg>
+          </app></l>
+        <l n="100"> καὶ <app>
+            <rdg wit="#P">βρίσκω σαρακιάρικα<note type="gloss">Φαγωμένος από σαράκι,
+                σκουληκοφαγωμένος.</note></rdg>
+            <rdg wit="#K #G #M #S #A #C">εὑρίσκω <app>
+                <rdg wit="#P #C #A #S #M #G">ἐκεῖσε κείμενα</rdg>
+                <rdg wit="#K">ἐκεῖ συγκείμενα</rdg>
+              </app></rdg>
+          </app> πολλὰ πολλὰ χαρτία,</l>
+        <l n="101">
+          <app>
+            <rdg wit="#P #C #A #S #M #K">ἁπλώνω εἰς τὸ</rdg>
+            <rdg wit="#G">ἀνοίγω τὸ</rdg>
+          </app> περσίκιν μου, γυρεύω τὸ πουγγίν μου,</l>
+        <l n="102"> διὰ <app>
+            <rdg wit="#G #M #S #A #C">στάμενον</rdg>
+            <rdg wit="#P #K">στάμενα</rdg>
+          </app> τὸ ψηλαφῶ, καὶ αὐτὸ γέμει χαρτία.</l>
+        <l n="103"> Ἀφοῦ δὲ τὰς γωνίας μου <app>
+            <rdg wit="#P #C #A #S #M #G">τὰς ὅλας ψηλαφήσω,</rdg>
+            <rdg wit="#K">ταύτας καταγυρεύσω,</rdg>
+          </app></l>
+        <l n="104"> ἵσταμαι τότε κατηφὴς καὶ <app>
+            <rdg wit="#K #G #M #S #C #P">ἀπομεριμνημένος,</rdg>
+            <rdg wit="#A">ἀπομεριμνισμένος</rdg>
+          </app></l>
+        <l n="105">
+          <app>
+            <rdg wit="#C #S #A">λιποθυμῶ, λιγοψυχῶ ἀπὸ πολλῆς μου πείνας,</rdg>
+            <rdg wit="#P">λιγοθυμῶ, λιγοψυχῶ ἀπὸ πολλῆς μου πείνας,</rdg>
+            <rdg wit="#G">λιποθυμῶ καὶ ὀλιγορῶ ἐκ τῆς πολλῆς μου πείνας</rdg>
+            <rdg wit="#M">λιποθυμῶ καὶ ὀλιγορῶ ἀπὸ πολλῆς μου θλίψης,</rdg>
+            <rdg wit="#K">λιμῶ πολλὰ ὁ ἄθλιος, οὐκ ἔχω τι νὰ φάγω</rdg>
+          </app>
+        </l>
+        <l n="106"> καὶ <app>
+            <rdg wit="#G #A #S #C">ἀπὸ</rdg>
+            <rdg wit="#M #P #K">διὰ</rdg>
+          </app> τὴν πείναν τὴν πολλὴν καὶ τὴν στενοχωρίαν</l>
+        <l n="107">
+          <app>
+
+            <rdg wit="#G">γραμμάτων καὶ γραμματικῶν τὰ κλαπωτὰ προκρίνω</rdg>
+            <rdg wit="#S #A #C #M">γράμματα τῶν γραμματικῶν <app>
+                <rdg wit="#M">τὰ κλαπωτὰ</rdg>
+                <rdg wit="#S #A #C">τοῖς κλαπωτοῖς</rdg>
+              </app>προκρίνω </rdg>
+            <rdg wit="#P #K"><app>
+                <rdg wit="#K">γραμμάτων <note type="critical">Ο στίχος στο χφ. Κ δεν είναι
+                    έλλογος.</note></rdg>
+                <rdg wit="#P">ἀρνοῦμαι</rdg>
+              </app> τὰ γραμματικὰ τὰ κλαπωτὰ προκρίνω</rdg>
+          </app>
+        </l>
+        <l n="108"> Τὴν κεφαλήν σου, <app>
+            <rdg wit="#K #P #M #C #A #S">βασιλεῦ</rdg>
+            <rdg wit="#G">δέσποτα</rdg>
+          </app>, <app>
+            <rdg wit="#S #A #C">πρὸς</rdg>
+            <rdg wit="#G #M #P #K">εἰς</rdg>
+          </app> τοῦτο, τί μὲ λέγεις;</l>
+        <l n="109">
+          <app>
+            <rdg wit="#G #M #P #K">Ἂν</rdg>
+            <rdg wit="#S #A #C">Ἐὰν</rdg>
+          </app> ἔχω γείτονα τινὰ καὶ ἔχει παιδὶν <app>
+            <rdg wit="#C #A #S #K #P #G">ἀγόριν</rdg>
+            <rdg wit="#M">ἀγούριν</rdg>
+          </app></l>
+        <l n="110"> καὶ <app>
+            <rdg wit="#S #A #C">εἴπω</rdg>
+            <rdg wit="#G #M #P #K">νὰ τὸν εἰπῶ</rdg>
+          </app> ὅτι μάθε <app>
+            <rdg wit="#G #A #S #C">το</rdg>
+            <rdg wit="#M #C">τὰ</rdg>
+            <rdg wit="#P #K">τὸν</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #S #A #G">γραμματικὰ</rdg>
+            <rdg wit="#C">γράμματα</rdg>
+            <rdg wit="#P #K">γραμματικὸν</rdg>
+          </app> νὰ ζήσῃ,</l>
+        <l n="111">
+          <app>
+            <rdg wit="#S #A #C">σαλοκρανιοκέφαλον πάντως νὰ μὲ ὀνειδίζῃ,</rdg>
+            <rdg wit="#G #M #P #K">
+              <app>
+                <rdg wit="#G">παρακρουνιαροκέφαλον</rdg>
+                <rdg wit="#P">παρακρανιαροκέφαλον</rdg>
+                <rdg wit="#M">παρακρανιοκέφαλον</rdg>
+                <rdg wit="#K">παρακρονιοκέφαλον</rdg>
+              </app>
+              <app>
+                <rdg wit="#G #P #K">πάντες</rdg>
+                <rdg wit="#M">πάντα</rdg>
+              </app>
+              <app>
+                <rdg wit="#G #P">νὰ</rdg>
+                <rdg wit="#M #K"/>
+              </app>
+              <app>
+                <rdg wit="#G #M #K">μὲ</rdg>
+                <rdg wit="#P">μ’ </rdg>
+              </app> ὀνομάσουν </rdg>
+          </app>
+        </l>
+        <l n="112">
+          <app>
+            <rdg>ἐὰν τὸν οὐκ εἴπω </rdg>
+            <rdg wit="#G">ἐὰν οὐ τὸν εἴπω</rdg>
+            <rdg wit="#P">νὰ τὸν εἴπω ὅτι</rdg>
+            <rdg wit="#K">ἀλλὰ κάλλιον νὰ τὸν εἴπω</rdg>
+          </app> μάθε το τσαγγάρην τὸ παιδίν σου.</l>
+        <l n="112-1">
+          <app>
+            <rdg wit="#G">καὶ ἄκουσον τὴν βιοτὴν τσαγγάρου καὶ νὰ μάθῃς</rdg>
+          </app>
+        </l>
+        <l n="112-2">
+          <app>
+            <rdg wit="#G">τὴν βρῶσιν καὶ ἀνάπαυσιν, τὴν ἔχει καθ’ ἑκάστην.</rdg>
+          </app>
+        </l>
+        <l n="113"> Γείτοναν ἔχω <app>
+            <rdg wit="#S #A #C">τσακωτήν,</rdg>
+            <rdg wit="#G #K #P #M">πετσωτήν,</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #P #K #C #A #S">τάχα ψευδοτσαγγάρην,</rdg>
+            <rdg wit="#G">ψευδοτσαγγάρην τάχα,</rdg>
+          </app></l>
+        <l n="114">
+          <app>
+            <rdg wit="#A #C  #M #S #G">πλὴν ἔνι <app>
+                <rdg wit="#A #C #M #S">καλοψουνιστής</rdg>
+                <rdg wit="#G">καλοψωνιστής</rdg>
+              </app>, ἔνι</rdg>
+            <rdg wit="#K">ἀλλ’ εἶναι καλοψωνιστής, ἔναι</rdg>
+            <rdg wit="#P">πλὴν ἔναι καλοψουνιστής, ἔναι</rdg>
+          </app> καὶ χαροκόπος· </l>
+        <l n="115"> ὅταν γὰρ ἴδῃ τὴν αὐγὴν περιχαρασσομένην,<note>Πβ. Λίβ. V 705 Ἅμα ἰδοῦμεν τὴν
+            αὐγὴν ὅτι περιχαράζει,</note></l>
+        <l n="115-1">
+          <app>
+            <rdg wit="#P #K">λέγει ἂς βράσῃ τὸ κρασὶν καὶ βάλε καὶ πιπέριν </rdg>
+          </app>
+        </l>
+        <l n="116"> εὐθὺς <app>
+            <rdg wit="#G #S #M #C #A">«ἂς βράσῃ</rdg>
+            <rdg wit="#P">«τὸ βράσειν</rdg>
+            <rdg wit="#K">«τὸ βράζει</rdg>
+          </app> τὸ θερμόν» λέγει πρὸς τὸ παιδίν του,</l>
+        <l n="117">
+          <app>
+            <rdg wit="#A #C #S #G #M">καὶ «νά, παιδίν μου, στάμενον εἰς <app>
+                <rdg wit="#A #C #S">τὸ χορδοκοιλίτσιν,</rdg>
+                <rdg wit="#G">τὰ χορδοκοιλίτσα</rdg>
+                <rdg wit="#M">τὰ χορδοκοιλίτσια</rdg>
+              </app></rdg>
+            <rdg wit="#P">νά το παιδίν μου, ἀγόρασε χορδόκοιλα δουκάτον,</rdg>
+            <rdg wit="#K">καὶ «νά, παιδίν μου, ἀγόρασε χορδόκοιλα δουκάτα,</rdg>
+          </app>
+        </l>
+        <l n="118">
+          <app>
+            <rdg wit="#G">ἀγόρασε καὶ βλάχικον σταμεναρέαν τυρίτσιν,</rdg>
+            <rdg wit="#M">καὶ φέρε με παιδίτσι μου τυρὶν σταμεναρέαν,</rdg>
+            <rdg wit="#P #K">καὶ φέρε καὶ βλάχικον τυρὶν ἄλλην</rdg>
+            <rdg wit="#S #A #C">καὶ φέρε με καὶ βλάχικον τυρὶν σταμεναρέαν,</rdg>
+          </app>
+        </l>
+        <l n="119"> καὶ δός <app>
+            <rdg wit="#G #M #P #K">με</rdg>
+            <rdg wit="#S #A #C">μοι</rdg>
+          </app> νὰ <app>
+            <rdg wit="#C #A #S #K #P #G">προγεύσωμαι</rdg>
+            <rdg wit="#K">προγεύομαι</rdg>
+          </app> καὶ <app>
+            <rdg wit="#S #A #C">πάλιν</rdg>
+            <rdg wit="#G #M #P #K">τότε</rdg>
+          </app> νὰ <app>
+            <rdg wit="#K #P #G #C #A #S">πετσώνω.»</rdg>
+            <rdg wit="#M">πετσώσω.»</rdg>
+          </app></l>
+        <l n="120"> Ἀφοῦ δὲ <app>
+            <rdg wit="#S #A #C">φάγῃ</rdg>
+            <rdg wit="#G #M">κλώσῃ</rdg>
+            <rdg wit="#P">φθάσῃ</rdg>
+            <rdg wit="#K">βράσῃ</rdg>
+          </app> τὸ τυρὶν καὶ τὰ <app>
+            <rdg wit="#S #A #C"><choice>
+                <corr resp="Eideneier">χορδόκοιλα</corr>
+                <sic>χονδρόκοιλα</sic>
+              </choice></rdg>
+            <rdg wit="#G">χορδοκοιλίτσα</rdg>
+            <rdg wit="#M #P #K">χορδοκοιλίτσα</rdg>
+          </app> του,</l>
+        <l n="121">κὰν τέσσαρα <!-- χρειάζεται έλεγχος -->
+          <app>
+            <rdg wit="#S #A #C #M #P #K">τὸν</rdg>
+            <rdg wit="#G">τοῦ</rdg>
+          </app>
+          <app>
+            <rdg wit="#A #S #G">δίδωσιν</rdg>
+            <rdg wit="#C #M">δίδουν</rdg>
+            <rdg wit="#P #K">δίδουσιν</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #S #A">μὲ τὸ</rdg>
+            <rdg wit="#M #P #K">εἰς τὸ</rdg>
+          </app>
+          <app>
+            <rdg wit="#A #P #M #A #S">τρανὸν μουχρούτιν,</rdg>
+            <rdg wit="#C">τρανὸν μισσούριν</rdg>
+            <rdg wit="#G">γεμάτα εἰς τὸ μισσούριν,</rdg>
+          </app>
+        </l>
+        <l n="122"> καὶ πίνει <app>
+            <rdg wit="#G #C #S #A #P #K">τα</rdg>
+            <rdg wit="#M">το</rdg>
+          </app> καὶ ἐρεύγεται, <app>
+            <rdg wit="#S #A">κιρνοῦν</rdg>
+            <rdg wit="#G #C #M #P #K">κερνοῦν</rdg>
+          </app>
+          <app>
+            <rdg wit="#P #M #C #G #A #S">τον</rdg>
+            <rdg wit="#K"><note type="critical">Τα υπόλοιπα χφ. παραδίδουν εδώ τη γραφή
+                «τον».</note></rdg>
+          </app> ἄλλον ἕνα,</l>
+        <l n="123"> καὶ παρευθὺς ὑπόδημαν <app>
+            <rdg wit="#A #C #S #G">ἐγείρει</rdg>
+            <rdg wit="#M">ἐπάρει</rdg>
+            <rdg wit="#P #K">ἐπαίρνει</rdg>
+          </app> καὶ πετσώνει.</l>
+        <l n="124">
+          <app>
+            <rdg wit="#M #G #S #C #A #K">Ὅταν</rdg>
+            <rdg wit="#P">ὅνταν</rdg>
+          </app> δὲ <app>
+            <rdg wit="#M #G #S #C #A">πάλιν, δέσποτα,</rdg>
+            <rdg wit="#P #K">πάλιν, βασιλεῦ</rdg>
+          </app>
+          <app>
+            <rdg wit="#K #A #C #S #G #M">γεύματος</rdg>
+            <rdg wit="#P">γέματος</rdg>
+          </app> ὥρα φθάσῃ,</l>
+        <l n="125"> ρίπτει τὸ καλαπόδιν του, <app>
+            <rdg wit="#K #A #C #S #G #P">ρίπτει</rdg>
+            <rdg wit="#M">ἀλλὰ</rdg>
+          </app> καὶ τὸ σανίδιν</l>
+        <l n="126">
+          <app>
+            <rdg wit="#M #G #S #C #A">καὶ τὸ <app>
+                <rdg wit="#S #C #K #P #A">σουβλὶν</rdg>
+                <rdg wit="#G">σουγλὶν</rdg>
+                <rdg wit="#M">σογλὶν</rdg>
+              </app> καὶ τὸ <app>
+                <rdg wit="#A #P #K #C #M #S">σμιλὶν</rdg>
+                <rdg wit="#G">σφετλὶν</rdg>
+              </app> καὶ τὰ σφηκώματά του,</rdg>
+            <rdg wit="#P #K">void</rdg>
+          </app>
+        </l>
+        <l n="127"> καὶ λέγει τὴν γυναίκαν του: «<app>
+            <rdg wit="#C #A #S">κερά μου</rdg>
+            <rdg wit="#M #K">κυρά μου</rdg>
+            <rdg wit="#G">κυράκα</rdg>
+            <rdg wit="#P">κυρὰ καὶ</rdg>
+          </app>, θὲς τραπέζιν,</l>
+        <l n="128">
+          <app>
+            <rdg wit="#S #A #C">καὶ πρῶτον θὲς τὸ ἐκζεστόν,</rdg>
+            <rdg wit="#M #P #K">καὶ πρῶτον μίσσον ἐκζεστόν,</rdg>
+            <rdg wit="#G">πρῶτον μίσσον τὸ ἐκζεστόν,</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C">καὶ τότε τὸ σφουγγάτον</rdg>
+            <rdg wit="#P #K">δεύτερον τὸ σφουγγάτον</rdg>
+            <rdg wit="#G">δεύτερον τὸ κρασάτον</rdg>
+            <rdg wit="#M">φέρε με τὸ σκορδάτον</rdg>
+            <note>
+              <corr resp="Eideneier">Ο Eideneier διορθώνει το δεύτερο ημιστίχιο σε «πλὴν βλέπε νὰ μὴ
+                βράζῃ,», το οποίο απαντά στο στ. 129 στα χφ. SAC.</corr>
+            </note>
+          </app>
+        </l>
+        <l n="129">
+          <app>
+            <rdg wit="#G">void</rdg>
+            <rdg wit="#C #A #S #K #P #M">
+              <app>
+                <rdg wit="#S #A #C">καὶ δεύτερον</rdg>
+                <rdg wit="#C #P #K">καὶ τρίτον</rdg>
+              </app>
+              <app>
+                <rdg wit="#K #P #C #A #S">τὸ</rdg>
+                <rdg wit="#M"/>
+              </app>
+              <app>
+                <rdg wit="#M #S #A #C #K">ἀκρόπαστον,</rdg>
+                <rdg wit="#P">ἀκριόπαστον,</rdg>
+              </app>
+              <app>
+                <rdg wit="#S #A #C">πλὴν βλέπε νὰ μὴ βράζῃ.»</rdg>
+                <rdg wit="#M #P #K">
+                  <app>
+                    <rdg wit="#M #K">ὀπτὸν</rdg>
+                    <rdg wit="#P">ὀφτὸν</rdg>
+                  </app> ἀπὸ <app>
+                    <rdg wit="#P #K">μερίου,</rdg>
+                    <rdg wit="#K">μηρίου,</rdg>
+                  </app>
+                </rdg>
+              </app>
+              <note>
+                <corr resp="Eideneier">O Eideneier διορθώνει το δεύτερο ημιστίχιο σε «καὶ τότε τὸ
+                  σφουγγάτον» που απαντά στον στ. 128 στα χφφ. SAC.</corr>
+              </note>
+            </rdg>
+          </app>
+        </l>
+        <l n="129-1">
+          <app>
+            <rdg wit="#G #M">καὶ τρίτον τὸ μονόκυθρον, πλὴν βλέπε νὰ μὴ βράζῃ.»</rdg>
+            <rdg wit="#P">καὶ τέταρτον μονόκυθρον, πλὴν βλέπε νὰ μὴ βράζῃ.»</rdg>
+            <rdg wit="#K">καὶ τέταρτον μονόκυθρον, πλὴν δὲ βλέπε μὴ βράσῃ.»</rdg>
+
+          </app>
+        </l>
+        <l n="130">
+          <app>
+            <rdg wit="#A #C #S">Ἀφοῦ δὲ φάγουν τὸ ἐκζεστόν, ἔκτοτε τὸ σκορδάτον,</rdg>
+            <rdg wit="#G #M #P #K">Ἀφοῦ δὲ <app>
+                <rdg wit="#K #P #G">παραθέσουσι</rdg>
+                <rdg wit="#M">παραθέσεται</rdg>
+              </app> καὶ νίψεται καὶ κάτσει</rdg>
+          </app>
+        </l>
+        <l n="131"> ἀνάθεμά με, βασιλεῦ, ὅταν στραφῶ καὶ ἰδῶ τον,</l>
+        <l n="131-1">
+          <app>
+            <rdg wit="#P #K"><app>
+                <rdg wit="#P">ὅνταν</rdg>
+                <rdg wit="#K">ὅταν</rdg>
+              </app> στραφῶ καὶ ἴδω τον λοιπὸν τὸ πῶς καθίζει</rdg>
+          </app>
+        </l>
+        <l n="132"> τὸ πῶς <app>
+            <rdg wit="#G #S #C #A">ἀνακομβώνεται</rdg>
+            <rdg wit="#M #P">ἀνακομπώνεται</rdg>
+            <rdg wit="#K">ἀνασκομπώνεται<note>Γραφή από το χφ., ο Eideneier δεν αναφέρει παραλλαγή
+                του χφ. K.</note></rdg>
+          </app>
+          <app>
+            <rdg wit="#P #A #S #G #C">κατὰ τῆς μαγειρείας,</rdg>
+            <rdg wit="#K">κατὰ τῆς μαγερείας <note>Γραφή από το χφ., ο Eideneier δεν αναφέρει
+                παραλλαγή του χφ. K.</note></rdg>
+            <rdg wit="#M">κατὰ τὴν μαγερείαν<note type="critical">Οι γραφές στο κριτικό υπόμνημα
+                αυτοαναιρούνται, έλεγχος του χφ. απαραίτητος.</note></rdg>
+          </app>
+        </l>
+        <l n="132-1">
+          <app>
+            <rdg wit="#G #M #P #K"><app>
+                <rdg wit="#M #G">ἂν οὐ</rdg>
+                <rdg wit="#K #P">καὶ οὐδὲν</rdg>
+              </app>
+              <app>
+                <rdg wit="#G #M #K">κινοῦν</rdg>
+                <rdg wit="#P">τρέχουν</rdg>
+              </app> τὰ σάλια μου <app>
+                <rdg wit="#G #M">καὶ τρέχουν ὡς ποτάμιν,</rdg>
+                <rdg wit="#P #K">ὡς τρέχει τὸ ποτάμιν,</rdg>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="132-2">
+          <app>
+            <rdg wit="#G">αὐτὸς γὰρ ἐμβουκώνεται, κλώθει τὴν μαγειρίαν</rdg>
+            <rdg wit="#M"> αὐτὸς γὰρ ἐμπουκώνεται, κλώθει τὴν μαγερείαν</rdg>
+          </app>
+        </l>
+        <l n="133"> καὶ ἐγὼ <app>
+            <rdg wit="#S #A">ὑπηγαίνω</rdg>
+            <rdg wit="#G #M #P">ὑπάγω</rdg>
+            <rdg wit="#K">ὑπαγαίνω</rdg>
+            <rdg wit="#C">ὑπομένω</rdg>
+          </app> καὶ ἔρχομαι <app>
+            <rdg wit="#G #M #P #K">πόδας μετρῶν τῶν <app>
+                <rdg wit="#P #M #G">στίχων.</rdg>
+                <rdg wit="#K">στιχίων.</rdg>
+              </app></rdg>
+            <rdg wit="#S #A #C">ποσῶς μετρῶ τοὺς στίχους.<note type="critical">Ο Eideneier εκδίδει
+                το δεύτερο ημιστίχιο σύμφωνα με τα χφ. GMP.</note></rdg>
+          </app></l>
+        <l n="134"> Αὐτὸς <app>
+            <rdg wit="#C #A #S #K #P">κοτσώνει</rdg>
+            <rdg wit="#G #M">χορταίνει</rdg>
+          </app> τὸ γλυκὺν εἰς τὸ τρανὸν <app>
+            <rdg wit="#P #K #S #A #M #G">μουχρούτιν,</rdg>
+            <rdg wit="#C">μισσούριν,</rdg>
+          </app></l>
+        <l n="135">
+          <app>
+            <rdg wit="#C #G #M #A #S">καὶ ἐγὼ</rdg>
+            <rdg wit="#P #K">εὐθὺς</rdg>
+          </app> ζητῶ τὸν ἴαμβον, γυρεύω τὸν σπονδεῖον, </l>
+        <l n="136"> γυρεύω τὸν πυρρίχιον καὶ τὰ λοιπὰ τὰ μέτρα.</l>
+        <l n="137"> Ἀλλὰ τὰ μέτρα <app>
+            <rdg wit="#P #S #A #M #G #C">ποῦ</rdg>
+            <rdg wit="#K">ὁποὺ μου</rdg>
+          </app> ὠφελοῦν <app>
+            <rdg wit="#K #C #M #G #A #S">τὴν</rdg>
+            <rdg wit="#P">στὴν</rdg>
+          </app> ἄμετρόν μου πείναν;</l>
+        <l n="138">
+          <app>
+            <rdg wit="#A #C #G #M #P #S">Πότε</rdg>
+            <rdg wit="#K">Τότε</rdg>
+          </app> γὰρ ἐκ τὸν ἴαμβον νὰ φάγω, κοσμοκράτορ,</l>
+        <l n="139"> ἢ <app>
+            <rdg wit="#A #C #G #M #P #S">πῶς</rdg>
+            <rdg wit="#K">ὅπως</rdg>
+          </app> ἐκ τὸν πυρρίχιον ποτέ μου νὰ χορτάσω;</l>
+        <l n="140"> Ἔδε τεχνίτης <app>
+            <rdg wit="#G">στιχιστὴς</rdg>
+            <rdg wit="#S #A #C">στιχιτὸς<note type="critical">Ο Eideneier προτιμά τη γραφή
+                «στιχιστής» του χφ. G. <lb/>Μήπως <ref
+                  target="http://stephanus.tlg.uci.edu/Iris/indiv/lexica.jsp#qid=205070&amp;ql=STIXIKO%2FS%2C+-H%2F%2C+-O%2FN&amp;q=%CF%83%CF%84%CE%B9%CF%87%CE%B9%CE%BA%CF%8C%CF%82%2C+-%CE%AE%2C+-%CF%8C%CE%BD&amp;usr_input=greek"
+                  >στιχικός</ref>;</note></rdg>
+            <rdg wit="#K #M">στιχιτὴς</rdg>
+            <rdg wit="#P">σοφιστὴς</rdg>
+          </app> ἐκεῖνος ὁ τσαγγάρης</l>
+        <l n="141"> εἶπε τὸ «κύριε <app>
+            <rdg wit="#G #K">εὐλόγησον»,</rdg>
+            <rdg wit="#S #A #C #P">ἐλέησον»,</rdg>
+          </app>
+          <app>
+            <rdg wit="#P #C #A #K #M #S">ἤρξατο</rdg>
+            <rdg wit="#G">καὶ ἤρξατο</rdg>
+          </app> ρουκανίζειν.</l>
+        <l n="142"> Ἐγὼ δέ, φεῦ τῆς συμφορᾶς, πόσους νὰ <app>
+            <rdg wit="#M #K #A #C #P #S">πλέξω</rdg>
+            <rdg wit="#G">εἴπω</rdg>
+          </app> στίχους,</l>
+        <l n="143">
+          <app>
+            <rdg wit="#S #C #A #M">πόσα νὰ γράψω καὶ νὰ εἰπῶ, πόσα νὰ λαρυγγίσω,</rdg>
+            <rdg wit="#G #P #K">πόσους νὰ <app>
+                <rdg wit="#G">γράψω</rdg>
+                <rdg wit="#P #K">πλέξω</rdg>
+              </app>
+              <app>
+                <rdg wit="#P #K">καὶ νὰ πῶ,</rdg>
+                <rdg wit="#G">κάλλιστα,</rdg>
+              </app> πόσους νὰ λαρυγγίσω </rdg>
+          </app>
+        </l>
+        <l n="144"> νὰ τύχω <app>
+            <rdg wit="#A #C #S #G #M">μου</rdg>
+            <rdg wit="#P #K">καὶ</rdg>
+          </app> τοῦ λάρυγγος τῆς ἄκρας <app>
+            <rdg wit="#K #M #G #S #C #A">θεραπείας;</rdg>
+            <rdg wit="#P">βοηθείας;</rdg>
+          </app></l>
+        <l n="145">
+          <app>
+            <rdg wit="#P #A #C #S #G #M">Ὥρμησα <app>
+                <rdg wit="#P #A #C #S #M">τάχα καὶ ἐγὼ</rdg>
+                <rdg wit="#G">τάχατε κἀγὼ</rdg>
+              </app></rdg>
+            <rdg wit="#K">ὁρμήσας γὰρ ὁ ’λεεινός</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #K #M #S #C #A">τὸ</rdg>
+            <rdg wit="#P">τοῦ</rdg>
+          </app> νὰ γενῶ τσαγγάρης,</l>
+        <l n="146">
+          <app>
+            <rdg wit="#G #A #C #S #M">μήνα</rdg>
+            <rdg wit="#K">διὰ νὰ</rdg>
+            <rdg wit="#P">ἵνα</rdg>
+          </app> χορτάσω τὸ ψωμίν, <app>
+            <rdg wit="#M #S #C #A #P">τὸ</rdg>
+            <rdg wit="#G">τὸ οὐ</rdg>
+            <rdg wit="#K">οὐ</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #M #S #C #A #P">λέγουν ἀφρατίτσιν,</rdg>
+            <rdg wit="#K">λέγω το ’φράτον,</rdg>
+          </app></l>
+        <l n="147">
+          <app>
+            <rdg wit="#A #C #S #M">ἢ ἀπὸ</rdg>
+            <rdg wit="#G #P #K">ἀλλὰ</rdg>
+          </app> τὸ μεσοκάθαρον, <app>
+            <rdg wit="#S #C #A #M">τὸ λέγουν τῆς πτωχείας,</rdg>
+            <rdg wit="#G">τὸ λέγουσι τῆς μέσης,</rdg>
+            <rdg wit="#P">τὸ λέγουν κιβαρίτην,</rdg>
+            <rdg wit="#K">τὸ λέγουν τῆς κοπρίας,</rdg>
+          </app></l>
+        <l n="148"> τὸ <app>
+            <rdg wit="#S #A #M">ἐπεθυμοῦν</rdg>
+            <rdg wit="#G #C #K">ἐπιθυμοῦν</rdg>
+            <rdg wit="#P">’πιθυμοῦν</rdg>
+          </app> γραμματικοὶ καὶ καλοστιχοπλόκοι,</l>
+        <l n="149">
+          <app>
+            <rdg wit="#M #A #C #S">καὶ τέως ὀκάπου ηὕρηκα τὸ ταρτερὸν τὸ λέγουν,</rdg>
+            <rdg wit="#G">τέως γυρεύων ηὕρηκα καὶ ταρτερὸν ὁκάπου,</rdg>
+            <rdg wit="#K">καὶ τέως ὀκάπου εὕρηκα κὰν ταρτερὸν ὀκάπου,</rdg>
+            <rdg wit="#P">καὶ τέως ὀκάπου ηὕρηκα κὰν τορνεσάκιν κάπου,</rdg>
+          </app>
+        </l>
+        <l n="150"> καὶ <app>
+            <rdg wit="#S #C #A #M #P">δίδω το</rdg>
+            <rdg wit="#G">ἔδωκα</rdg>
+            <rdg wit="#K">ἔδωσα</rdg>
+          </app> καὶ <app>
+            <rdg wit="#G #M #A #C #S">ἠγόρασα</rdg>
+            <rdg wit="#P #K">ἀγόρασα</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #C #A #M #K #P">σουβλὶν</rdg>
+            <rdg wit="#G">σουγλὶν</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #P #K #M #C #S">ἀπὸ</rdg>
+            <rdg wit="#A">ἀπὸ τὸν</rdg>
+          </app> τσαγγάρην,</l>
+        <l n="151"> καὶ ὡς ἦσαν τὰ καλίγια μου πλήρης ἐξεσχισμένα,</l>
+        <l n="152"> ἐπίασα <app>
+            <rdg wit="#C #S #A #M">τάχα καὶ ἐγὼ</rdg>
+            <rdg wit="#Κ">τάχα τα μικρὸν</rdg>
+            <rdg wit="#G #P">τάχατε μικρὸν</rdg>
+          </app> νὰ τὰ <app>
+            <rdg wit="#P #G #A #S #C #M">περισουφρώσω,</rdg>
+            <rdg wit="#K">περιφρουρήσω,</rdg>
+          </app></l>
+        <l n="153"> καὶ κρούω <app>
+            <rdg wit="#M #A #S #C #K #P">σουβλέαν</rdg>
+            <rdg wit="#G">σουγλέαν</rdg>
+          </app> τὸ χέριν μου καὶ ἐδιέβην ἀπεκεῖθεν,</l>
+        <l n="154">
+          <app>
+            <rdg wit="#C #S #A #M">καὶ ὡς τύμπανον ἐγένετο καλλίστου τυμπανάρη,</rdg>
+            <rdg wit="#G #P #K">καὶ <app>
+                <rdg wit="#G #K">ὡς</rdg>
+              </app> πρῆσμαν ἐκ τοῦ <app>
+                <rdg wit="#G #K">πρήσματος</rdg>
+                <rdg wit="#P">κρούσματος</rdg>
+              </app> γέγονε τῇ χειρί μου</rdg>
+          </app>
+        </l>
+        <l n="155">
+          <app>
+            <rdg wit="#P #K #M #A #S #C">καὶ</rdg>
+          </app> ὁλόκληρον <app>
+            <rdg wit="#S #M">ἐδιεβίβασα</rdg>
+            <rdg wit="#G">ἐδιάβασα</rdg>
+            <rdg wit="#A #C">διεβίβασα</rdg>
+            <rdg wit="#P">ἐδιεβίβασα</rdg>
+            <rdg wit="#K">ἐπέρασα</rdg>
+          </app> μῆναν εἰς <app>
+            <rdg wit="#G #C #M">τὸν ξενῶνα.<note type="critical">Η γραφή του χφ. M πρέπει να
+                ελεγχθεί, δεν περιλαμβάνεται στο κριτικό υπόμνημα της έκδοσης.</note></rdg>
+            <rdg wit="#S #A">τὸν ξενιῶναν.<note type="critical">Ο Eideneier προτιμά τη γραφή
+                «ξενῶνα» των χφ. G, C και M (;).</note></rdg>
+            <rdg wit="#P">τὸ κρεβάτιν.</rdg>
+            <rdg wit="#K">τὸ κραβάτιν.</rdg>
+          </app></l>
+        <l n="156">
+          <app>
+            <rdg wit="#G">ἀπὸ πτωχείας μου πάλιν δέ, δέσποτα στεφηφόρε.</rdg>
+            <rdg wit="#C #S #K #P #A #M">Ἀνάθεμάν με, <app>
+                <rdg wit="#M #K #P #A #S ">βασιλεῦ,</rdg>
+                <rdg wit="#C">βασιλεύς,</rdg>
+              </app>
+              <app>
+                <rdg wit="#A #P #K">καὶ</rdg>
+                <rdg wit="#S #C">ναὶ</rdg>
+              </app> τρισανάθεμάν με,</rdg>
+          </app>
+        </l>
+        <l n="157">
+          <app>
+            <rdg wit="#M #C #A #S">ἐὰν οὐ</rdg>
+            <rdg wit="#K #P">Ἂν οὐ</rdg>
+            <rdg wit="#G">Ἄκων</rdg>
+          </app> ζηλεύω πάντοτε τοὺς <app>
+            <rdg wit="#S #A #C #M">χεροτεχναρίους.</rdg>
+            <rdg wit="#G #P">χειροτεχναρίους.</rdg>
+            <rdg wit="#K">χειρότερους τεχναρίους.</rdg>
+          </app></l>
+        <l n="157-1"><app>
+            <rdg wit="#P">ἀνάθεμαν τὴν <add place="above">ἂν ἔμαθα</add> καπουλικὴν καὶ σηκωτὴς ἂν
+                ἤμουν<note type="critical">Ο στίχος απαντά μόνο στο χφ. P. Πβ. στ. <ref
+                  target="#stix181">181</ref>.</note></rdg>
+          </app></l>
+        <l n="157-2">
+          <app>
+            <rdg wit="#P">καὶ σηκωτής, νὰ σήκωνα τὴν ἅπασάν μου μέραν<note type="critical">Ο στίχος
+                απαντά μόνο στο χφ. P. Πβ. στ. <ref target="#stix182">182</ref>.</note></rdg>
+          </app>
+        </l>
+        <l n="157-3">
+          <app>
+            <rdg wit="#P">αὶ τὸ βραδὺν νὰ μ’ ἔδιδαν μεγάλας κομματούκλας<note type="critical">Ο
+                στίχος απαντά μόνο στο χφ. P. Πβ. στ. <ref target="#stix183">183</ref>.</note></rdg>
+          </app>
+        </l>
+        <l n="157-4">
+          <app>
+            <rdg wit="#P">ἀλλὰ καὶ τὸ ’μποτόπουλον νὰ γέμιζα κρασίτσιν<note type="critical">Ο στίχος
+                απαντά μόνο στο χφ. P. Πβ. στ. <ref target="#stix184">184</ref>.</note></rdg>
+          </app>
+        </l>
+        <l n="158">
+          <app>
+            <rdg wit="#K #C #A #S #M #P"><app>
+                <rdg wit="#G #C #A #S #M">Ἐὰν ἔμαθον</rdg>
+                <rdg wit="#P">Ἂν ἔμαθα <add place="above">ἀνάθεμα</add></rdg>
+                <rdg wit="#K">ἀνάθεμα</rdg>
+              </app> τὴν <app>
+                <rdg wit="#M #S #A #C #G #K">ραπτικὴν</rdg>
+                <rdg wit="#P">ραφτικὴν</rdg>
+              </app> ἐντέχνως ἐπιστήμην</rdg>
+            <rdg wit="#G">Ἂν οἶδα γοῦν τῆς ραπτικῆς δοκῶ τὴν ἐπιστήμην</rdg>
+          </app></l>
+        <l n="159">
+          <app>
+            <rdg wit="#C #A #S #M #K #G">μετὰ <app>
+                <rdg wit="#P #M #S #A #C">βελόνης</rdg>
+                <rdg wit="#G #K">βελόνιν</rdg>
+              </app> ταρτεροῦ</rdg>
+            <rdg wit="#P">μ’ ἕναν βελόνιν τορνεσιοῦ</rdg>
+          </app> καὶ <app>
+            <rdg wit="#M #S #A #C ">ράμματος</rdg>
+            <rdg wit="#G #P #K">ράμματα</rdg>
+          </app> σταμένου</l>
+        <l n="160"> καὶ ψαλιδόπουλον <app>
+            <rdg wit="#M #S #A #C">καλόν,</rdg>
+            <rdg wit="#G #P #K">μικρὸν,</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #A #S #M #G">νὰ <app>
+                <rdg wit="#C #A #S #M">ἤμουν</rdg>
+                <rdg wit="#G">ἤμην</rdg>
+              </app> οἰκοδεσπότης.</rdg>
+            <rdg wit="#P #K">νά ’μουν κ’ ἐγὼ τεχνίτης.</rdg>
+          </app></l>
+        <l n="161">
+          <app>
+            <rdg wit="#S #A #C">Ἐὰν</rdg>
+            <rdg wit="#C #G #P #K">Ἂν</rdg>
+          </app> γὰρ οὐκ <app>
+            <rdg wit="#K #S #A #P #M">ἐγυρεύετο</rdg>
+            <rdg wit="#G">ἐγυρίζετο</rdg>
+            <rdg wit="#C">ἠγυρεύετο</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #A #S #K #G #M">ράψιμον εἰς τὸν κόσμον,</rdg>
+            <rdg wit="#P">ράφτης ποτὲ στὸν κόσμον,</rdg>
+          </app></l>
+        <l n="162"> ὀκάποιας <app>
+            <rdg wit="#S #A #C #M">κὰν</rdg>
+            <rdg wit="#G">τέως</rdg>
+            <rdg wit="#K">μου</rdg>
+          </app> γειτόνισσας ροῦχον <app>
+            <rdg wit="#M #A #S #K #G #P">νὰ</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #A #S #C #G">ἐπαρελύθην,</rdg>
+            <rdg wit="#K">παραλύθην,</rdg>
+            <rdg wit="#P">παρελύθη,</rdg>
+          </app></l>
+        <l n="163"> καὶ παρευθὺς νὰ μὲ <app>
+            <rdg wit="#S #A #M #C">ἔκραξαν:</rdg>
+            <rdg wit="#G #P #K">ἔκραξεν:</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #A #S #G #C">«δεῦρο τεχνίτα δεῦρο,</rdg>
+            <rdg wit="#P">«μαστόρην καὶ τεχνίτην,</rdg>
+            <rdg wit="#K">«νὰ εἶπεν, ὦ τεχνίτα,</rdg>
+          </app></l>
+        <l n="164"> νά, <app>
+            <rdg wit="#K #P #C #S #A #M">κέντησε</rdg>
+            <rdg wit="#G">κέντησον</rdg>
+          </app> τὸ ροῦχον μου, <app>
+            <rdg wit="#M #A #S #C">ἔπαρ’ τὸ ραπτικόν σου.»</rdg>
+            <rdg wit="#G #K">κ’ ἔπαρ’ τὸ ράψιμόν σου.»</rdg>
+            <rdg wit="#P">καὶ περιμάζωσέ το.»</rdg>
+          </app></l>
+        <l n="164-1"><app>
+            <rdg wit="#P">καὶ ράψε τὸ παράλυμαν, ἔπαρ’ τὸ ράψιμόν σου<note type="critical">Ο στίχος
+                απαντά μόνο στο χφ. P.</note></rdg>
+          </app></l>
+        <l n="165">
+          <app>
+            <rdg wit="#S #A">Ἐὰν</rdg>
+            <rdg wit="#G #M #C #P #K">Ἂν</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #S #A #P #K">ἤμουν</rdg>
+            <rdg wit="#G #M">ἤμην</rdg>
+          </app>
+          <app>
+            <rdg wit="#P #M #G  #A #S #C">παραζυμωτὴς</rdg>
+            <rdg wit="#K">πάλιν ζυμωτὴς</rdg>
+          </app>
+          <app>
+            <rdg wit="#G #M #P #K">ἢ δουλευτὴς</rdg>
+            <rdg wit="#S #A #C">καὶ ζυμωτὴς<note type="critical">Ο Eideneier προτιμά την γραφή «ἢ
+                δουλευτὴς» των χφφ. GMPK.</note></rdg>
+          </app> μαγκίπου,</l>
+        <l n="166">
+          <app>
+            <rdg wit="#P #S #A #C #K #M">προφούρνια</rdg>
+            <rdg wit="#G">προφούρνιν</rdg>
+          </app>
+          <app>
+            <rdg wit="#K #C #A #S #P">νὰ</rdg>
+            <rdg wit="#M">καὶ νὰ</rdg>
+            <rdg wit="#G">κὰν</rdg>
+          </app> ἐχόρταινα <app>
+            <rdg wit="#G #M #K">καὶ ὡσὰν ἐμέναν εἶχεν.</rdg>
+            <rdg wit="#S #A #C">καὶ ὡσὰν ἐμέναν νὰ εἶχεν.</rdg>
+            <rdg wit="#P">καὶ νὰ καλοπαθούμην.</rdg>
+          </app></l>
+        <l n="167">
+          <app>
+            <rdg wit="#K">Καὶ</rdg>
+            <rdg wit="#A #S #G #C #P #M">Ὡς</rdg>
+          </app> γὰρ ἐδιέβαινα προχθὲς <app>
+            <rdg wit="#G">ὀκάπου εἰς μαγκιπεῖον</rdg>
+            <rdg wit="#S #A">πλησίον τοῦ μαγκιπείου,</rdg>
+            <rdg wit="#M #P #K">πλησίον μαγκιπείου,</rdg>
+            <rdg wit="#C">πλησίον τοῦ μαγκίπου,</rdg>
+          </app></l>
+        <l n="168">
+          <app>
+            <rdg wit="#A #S #G #C">ηὕρηκα</rdg>
+            <rdg wit="#P #K">καὶ βλέπω</rdg>
+            <rdg wit="#M">ηὗρα καὶ</rdg>
+          </app> τὴν μαγκίπισσαν <app>
+            <rdg wit="#Κ #P #C #G #S #A">ἔσωθεν</rdg>
+            <rdg wit="#M">ἔνδοθεν</rdg>
+          </app> ἱσταμένην</l>
+        <l n="169"> καὶ ταῖς χερσὶν <app>
+            <rdg wit="#C #G #S #A #M #P">κατέχουσαν</rdg>
+            <rdg wit="#K">κατέχουσα</rdg>
+          </app> ἄσπρον <app>
+            <rdg wit="#C #G #S #A #M #P">σεμιδαλάτον,</rdg>
+            <rdg wit="#K">σημιδαλάτον,</rdg>
+          </app></l>
+        <l n="170">
+          <app>
+            <rdg wit="#C #S #A #P #G #M">ἀπόξυσμαν</rdg>
+            <rdg wit="#K">ὑπόξυσμα</rdg>
+          </app> τριπτούτσικον, <app>
+            <rdg wit="#A #S #C">πλὴν δ’ ἐρουκάνιζέν το.</rdg>
+            <rdg wit="#G #P #K">καὶ ἐρουκάνιζέν το.</rdg>
+            <rdg wit="#M">καὶ ρουκανίζουσί το.</rdg>
+          </app></l>
+        <l n="170-1"><app>
+            <rdg wit="#G">ἐγὼ δ’ ἐκ πείνας ρίψας μου τὴν ἐντροπὴν μακρόθεν,</rdg>
+            <rdg wit="#M #P"> ἐγὼ <app>
+                <rdg wit="#M">δὲ ρίψας</rdg>
+                <rdg wit="#P">παρέκει ρίψας<note type="critical">Η γραφή του χφ. P πρέπει να
+                    ελεγχθεί.</note></rdg>
+              </app>, βασιλεῦ, τὴν ἐντροπὴν μακρόθεν,</rdg>
+            <rdg wit="#K"> ἐγὼ τὴν ἐντροπὴν ρίψας, βασιλεῦ, μακρόθεν</rdg>
+          </app></l>
+        <l n="171">
+          <app>
+            <rdg wit="#K #A #S #C">Εἰσῆλθα τοίνυν παρευθὺς</rdg>
+            <rdg wit="#G">ἔνδον εἰσῆλθον παρευθὺς</rdg>
+            <rdg wit="#M">ἔνδον εἰσῆλθον πρὸς αὐτὴν,</rdg>
+            <rdg wit="#P">ἐσέβηκα στὸ σπίτιν της </rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C #K #G">καὶ πρὸς ἐκείνην <app>
+                <rdg wit="#S #A">εἶπα·</rdg>
+                <rdg wit="#G">λέγω</rdg>
+                <rdg wit="#K">εἶπον</rdg>
+              </app></rdg>
+            <rdg wit="#P">καὶ προσεκύνησά την·</rdg>
+            <rdg wit="#M">μετὰ χαρᾶς καὶ λέγω·</rdg>
+          </app></l>
+        <l n="172">
+          <app>
+            <rdg>«κερά, κερὰ</rdg>
+            <rdg wit="#G #M">«κυρὰ κυρὰ</rdg>
+            <rdg wit="#K">«κυρά μου καὶ</rdg>
+            <rdg wit="#P">«λέγω κυρὰ</rdg>
+          </app> μαγκίπισσα, τὸ πῶς <app>
+            <rdg wit="#K #M #A #S #C">ἀκούεις</rdg>
+            <rdg wit="#P #G">ἀκοῦς</rdg>
+          </app> οὐκ οἶδα,</l>
+        <l n="173">
+          <app>
+            <rdg>δός μοι δαμὶν τριπτούτσικον, ὅπως τὸ ρουκανίσω.»</rdg>
+            <rdg wit="#M #G">γιὰ δὸς καὶ ἐμὲ τριπτούτσικον, δαμὶν <app>
+                <rdg wit="#G">νὰ</rdg>
+                <rdg wit="#M">ἂς</rdg>
+              </app> ρουκανίσω</rdg>
+            <rdg wit="#P">δός καὶ μέναν τριφτούτσικον δαμὶν νὰ ρουκανίσω</rdg>
+            <rdg wit="#K">καὶ δὸς μοι ἀπὸ τὸ τριπτὸν δαμὶν νὰ ρουκανίσω </rdg>
+          </app></l>
+        <l n="173-1">
+          <app>
+            <rdg wit="#M">καὶ ἐκείνη συντομεύσασα εἶπε γραμμα<supplied resp="Eideneier"
+                >τικὸς</supplied></rdg>
+          </app>
+        </l>
+        <l n="173-2">
+          <app>
+            <rdg wit="#M">παπὰς γραμματικός εἰσαι καὶ ζῇ ἐκ τὰ γραμματικά σου</rdg>
+          </app>
+        </l>
+        <l n="173-3">
+          <app>
+            <rdg wit="#G">ἀπόκρισιν δ’ οὐκ ἔδωκεν ἡ τρισαθλία ὅλως<note type="critical">Ο στίχος
+                απαντά μόνο στο χφ. G.<lb/> Οι στίχοι 173-1 και 173-2 απαντούν μόνο στο χφ.
+                M.</note></rdg>
+          </app>
+        </l>
+        <l n="174">
+          <app>
+            <rdg wit="#K #S #A #C #P">Ὡς δ’ εἶδα</rdg>
+            <rdg wit="#M">Ὡς δὲ εἶδον</rdg>
+            <rdg wit="#G">Καὶ ὡς εἶδα</rdg>
+          </app> τὸ <app>
+            <rdg wit="#G #M">ἀσυνείδητον</rdg>
+            <rdg wit="#C #A #S #K">ἀνυπόληπτον</rdg>
+            <rdg wit="#P">ἀνυπόληφτον</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C">καὶ τὸ ἀσυνείδητόν της,</rdg>
+            <rdg wit="#P">καὶ τὸ ἀδιάκριτόν της,</rdg>
+            <rdg wit="#K">καὶ τὸ ἀδιάντροπόν της,</rdg>
+            <rdg wit="#G #M">καὶ τὸ ἀνυπόληπτόν της,</rdg>
+          </app></l>
+        <l n="174-1"><app>
+            <rdg wit="#P">ἁρπάζω το ’κ τὸ χέριν της καὶ ἄλλην ὁδὸν ἐπῆρα,<note type="critical">Ο
+                στίχος απαντά μόνο στο χφ. P και παραλλαγμένος στο χφ. K.</note></rdg>
+            <rdg wit="#K">ἁρπάσω το ἐκ τὰς χεῖρας της καὶ εἰς ἄλλην ρύμνην κρούω,<note
+                type="critical">Ο στίχος απαντά μόνο στο χφ. K και παραλλαγμένος στο χφ.
+              P.</note></rdg>
+          </app></l>
+        <l n="175">
+          <app>
+            <rdg wit="#P #C #A #S #M">στενάζω</rdg>
+            <rdg wit="#G #K">στενάζων</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C #P #K #G">καὶ λυπούμενος</rdg>
+            <rdg wit="#M">καὶ θλιβόμενος</rdg>
+          </app>
+          <app>
+            <rdg wit="#K #C #A #S #M">ἄλλην ἐδῶκα ρύμην.</rdg>
+            <rdg wit="#G">ἄλλην διέβην ρύμην.</rdg>
+            <rdg wit="#P">ἔκατσα κ’ ἔφαγά το.</rdg>
+          </app></l>
+        <l n="176">
+          <app>
+            <rdg wit="#A #C #M #S">Ἐὰν</rdg>
+            <rdg wit="#G #P #K">Ἂν</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #M #C #K #P #A">ἤμουν</rdg>
+            <rdg wit="#G">ἤμην</rdg>
+          </app> ὀξυγαλατάς, <app>
+            <rdg wit="#A #C #M #S">ὀξύγαλον</rdg>
+            <rdg wit="#G">ὀξύγαλαν</rdg>
+            <rdg wit="#P">ὀξύγαλα</rdg>
+            <rdg wit="#K">ὀξύγαλας</rdg>
+          </app> νὰ <app>
+            <rdg wit="#G #S #M #C #A">ἐπώλουν,</rdg>
+            <rdg wit="#P #K">’πούλουν</rdg>
+          </app></l>
+        <l n="177"> τὴν <app>
+            <rdg wit="#K #P #M #G">τσούκαν</rdg>
+            <rdg wit="#S #A #C">τσούκαν δὲ<note>Ο Eideneier προτιμά τη γραφή των χφφ.
+              GPK.</note></rdg>
+          </app> τοῦ <app>
+            <rdg wit="#M #C #A #S">ὀξύγαλου</rdg>
+            <rdg wit="#G">ὀξυγάλατος</rdg>
+            <rdg wit="#K">ὀξυγάλακτος</rdg>
+            <rdg wit="#P">ξυγάλατος</rdg>
+          </app> εἰς τὸν <app>
+            <rdg wit="#S #A #M #G">ὦμον</rdg>
+            <rdg wit="#C #P #K">νῶμον</rdg>
+          </app> μου νὰ <app>
+            <rdg wit="#G #M #A #S #C">ἐκράτουν</rdg>
+            <rdg wit="#P #K">ἐβάστουν</rdg>
+          </app></l>
+        <l n="178"> καὶ ἀπὸ ψυχῆς νὰ ἐστρίγγιζα περιπατῶν <app>
+            <rdg wit="#C #S #A #M">τὰς ρύμας:</rdg>
+            <rdg wit="#G">νὰ ἐλάλουν:</rdg>
+            <rdg wit="#K #P">τὰς ρύμνας:</rdg>
+          </app></l>
+        <l n="179"> «ἐπάρετε δρουβανιστὸν <app>
+            <rdg wit="#M #A #S #C #P #K">ὀξύγαλον,</rdg>
+            <rdg wit="#G">ὀξύγαλαν,</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #M">γυναῖκαι!»</rdg>
+            <rdg wit="#G #C">γυναῖκες!»</rdg>
+            <rdg wit="#P #K">κυράδες!»</rdg>
+          </app></l>
+        <l n="180">
+          <app>
+            <rdg wit="#M #A #S #C #G">καὶ ἐκεῖναι,</rdg>
+            <rdg wit="#P #K">κ’ ἐκεῖνες</rdg>
+          </app> ὡς τὸ χρήζουσιν, <app>
+            <rdg wit="#S #A #M">σύντομον</rdg>
+            <rdg wit="#G">σύντομως</rdg>
+            <rdg wit="#C #K #P">σύντομα</rdg>
+          </app> νὰ <app>
+            <rdg wit="#M #A #S #K">ἐξεπούλουν.</rdg>
+            <rdg wit="#G #C">ἐξεπώλουν</rdg>
+            <rdg wit="#P">τὸ ’πούλουν</rdg>
+          </app></l>
+        <l n="181"> Καταβλαττὰς ἂν <app>
+            <rdg wit="#K #S #A #C">ἔμαθον</rdg>
+            <rdg wit="#P">ἤμουνε</rdg>
+            <rdg wit="#G #M">ἤμην</rdg>
+          </app> καὶ σηκωτὴς ἂν ἤμουν,</l>
+        <l n="182"> ὡς σηκωτὴς νὰ ἐδούλευα <app>
+            <rdg wit="#C #A #S #M #G">τὴν ἅπασαν ἡμέραν,</rdg>
+            <rdg wit="#P #K">ἅπασαν τὴν ἡμέραν,</rdg>
+          </app></l>
+        <l n="183"> καὶ τὸ βραδὺ νὰ μὲ ἔδιδον μεγάλην <app>
+            <rdg wit="#G #M #S #A #C #P">κομματούραν</rdg>
+            <rdg wit="#K">κομματούρας</rdg>
+          </app></l>
+        <l n="183-1"><app>
+            <rdg wit="#S #A #C">τὴν χθὲς οὐκ ἐζυμώσαμεν, <app>
+                <rdg wit="#A #S">ἀλεύριον</rdg>
+                <rdg wit="#C">ἀλεύριν</rdg>
+              </app> οὐκ ἦτον<note type="critical">Οι στίχοι 183-1 - 183-5 απαντούν μόνο στα χφφ.
+                SAC.</note></rdg>
+          </app>
+        </l>
+        <l n="183-2">
+          <app>
+            <rdg wit="#S #A #C">καὶ ὁλοκοτίνιν, πίστευσον, οὐκ εἶχα νὰ ἀγοράσω </rdg>
+          </app>
+        </l>
+        <l n="183-3">
+          <app>
+            <rdg wit="#S #A #C">πολλὰ τὴν εἶπα, πείνα μου, ἄφες μοι τρίτην ὥραν </rdg>
+          </app>
+        </l>
+        <l n="183-4">
+          <app>
+            <rdg wit="#S #A #C">καὶ μόνον ἔασον μικρόν, μή τραλισθῇ τὸ φῶς μου </rdg>
+          </app>
+        </l>
+        <l n="183-5">
+          <app>
+            <rdg wit="#S #A #C">ἀλλ’ ὅμως οὐχ ὑπήκουσεν <app>
+                <rdg wit="#S">ὡσεὶ</rdg>
+                <rdg wit="#A">ὅσο</rdg>
+                <rdg wit="#C">ὅσον</rdg>
+              </app> νὰ τὴν κοτσώσω </rdg>
+          </app>
+        </l>
+        <l n="184">
+          <app>
+            <rdg wit="#S #C #A">καὶ</rdg>
+          </app> τὸ ἄσπρον <app>
+            <rdg wit="#S #C #A">τὸ</rdg>
+          </app> ἐμποτόπουλον γεμάτον <app>
+            <rdg wit="#G #M">τὸ<app>
+                <rdg wit="#M">κρασί</rdg>
+                <rdg wit="#G">κρασίν</rdg>
+              </app> μου</rdg>
+            <rdg wit="#S #A #C">τὸ κρασίον</rdg>
+            <rdg wit="#P #K">κρασοβόλιν</rdg>
+          </app></l>
+        <l n="185"> καὶ μονοκύθρου <app>
+            <rdg wit="#M #K #P #C #A #S">μερτικὸν</rdg>
+            <rdg wit="#G">μερικὸν</rdg>
+          </app> ἐκ τὰ <app>
+            <rdg wit="#S #A #C #K #M #G">λαπαριμαῖα,</rdg>
+            <rdg wit="#P">λιπαρωμένα,</rdg>
+          </app></l>
+        <l n="186">
+          <app>
+            <rdg wit="#P #K #C #A #S">καὶ γὰρ ἐπὶ τὸ</rdg>
+            <rdg wit="#G #M">καὶ κὰν μετὰ τὸ</rdg>
+          </app>
+          <app>
+            <rdg wit="#M #G #C #A #S">σχόλασμαν,</rdg>
+            <rdg wit="#P #K">σκόλασμαν</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C #G #K #P">νὰ ἐπίανα</rdg>
+            <rdg wit="#M">ἐπιάνει</rdg>
+          </app> τὴν λαπάραν,</l>
+        <l n="187"> καὶ νὰ τὴν <app>
+            <rdg wit="#S #A #C #G">ἔκρουα</rdg>
+            <rdg wit="#M">ἔκρουν</rdg>
+            <rdg wit="#P #K">ἔκρουγα</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C #G #M">κοπετόν,</rdg>
+            <rdg wit="#P">βουκιές,</rdg>
+            <rdg wit="#K">κοπανές,</rdg>
+          </app> ὡς καὶ τὸ <app>
+            <rdg wit="#P #G #C #A #S #M">δίκαιον</rdg>
+            <rdg wit="#K">δίκιον</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A #C">ἔχει.</rdg>
+            <rdg wit="#G #M #P">εἶχε.</rdg>
+            <rdg wit="#K">εἶχα.</rdg>
+          </app></l>
+        <l n="188">
+          <app>
+            <rdg wit="#S #M #A #C">Κεντούκλας</rdg>
+            <rdg wit="#G #K #P">Κεντήκλας</rdg>
+          </app>
+          <app>
+            <rdg wit="#S #A">ἐὰν ἐμάνθανα</rdg>
+            <rdg wit="#G">κὰν ἂν ἔμαθα</rdg>
+            <rdg wit="#C">ἐὰν ἐμάθανα</rdg>
+            <rdg wit="#P #K">ἂν ἐμάθανα</rdg>
+          </app> καὶ τοὺς <app>
+            <rdg wit="#K #M #S #A #C">πεπεροτρίπτας,</rdg>
+            <rdg wit="#G">πιπεροτρίπτας,</rdg>
+            <rdg wit="#P">πιπεροτρίφτας,</rdg>
+          </app></l>
+        <l n="189"> ὁδοιπορῶν νὰ ἐστρίγγιζα, περιπατῶν <app>
+            <rdg wit="#K #A #S #P #C #M">νὰ ἐλάλουν·</rdg>
+            <rdg wit="#G">τὰς ρύμας·</rdg>
+          </app></l>
+        <l n="190">
+          <app>
+            <rdg wit="#M #C #S #A">«κεράδες</rdg>
+            <rdg wit="#G #P #K">«κυράδες</rdg>
+          </app> χειρομάχισσες, καλοοικοδέσποινές μου,</l>
+        <l n="191">
+          <app>
+            <rdg wit="#A #S #C #M">προκύψετε,</rdg>
+            <rdg wit="#G #P #K">προκύψατε,</rdg>
+          </app> βηλαρικὰς ἐπάρετε <app>
+            <rdg wit="#A #S #C #M">κεντούκλας</rdg>
+            <rdg wit="#G #P #K">κεντήκλας</rdg>
+          </app></l>
+        <l n="192"> καὶ τοὺς <app>
+            <rdg wit="#S #A #M #C">πεπεροτρίπτας</rdg>
+            <rdg wit="#G #K">πιπεροτρίπτας</rdg>
+            <rdg wit="#P">πιπεροτρίφτας</rdg>
+          </app> μου, νὰ τρίβετε <app>
+            <rdg wit="#M #S #A">πεπέριν!»</rdg>
+            <rdg wit="#C #G #P #K">πιπέριν!»</rdg>
+          </app></l>
+        <l n="193"> Καὶ ὡς <app>
+            <rdg wit="#G #P #K">εἶναι</rdg>
+          </app><app>
+            <rdg wit="#S #A #M #P">καλοοικοδέσποιναι</rdg>
+            <rdg wit="#C #K #G">καλοοικοδέσποινες</rdg>
+          </app>
+          <app>
+            <rdg wit="#C #M #S #A">ὀκάποσαι</rdg>
+            <rdg wit="#G #P #K">ὀκάποσες</rdg>
+          </app>
+          <app>
+            <rdg wit="#A #S #M #G #C">κεράδες</rdg>
+            <rdg wit="#P #K">κυράδες</rdg>
+          </app></l>
+        <l n="194"> καὶ τὰς <app>
+            <rdg wit="#M #A #C #S">κεντούκλας</rdg>
+            <rdg wit="#G #P #K">κεντήκλας</rdg>
+          </app> νὰ <app>
+            <rdg wit="#S #C #A #M #K #P">ἔπαιρναν</rdg>
+            <rdg wit="#G">ἤπαιρναν</rdg>
+          </app> καὶ τοὺς <app>
+            <rdg wit="#S #K #A #M">πεπεροτρίπτας.</rdg>
+            <rdg wit="#G #C">πιπεροτρίπτας.</rdg>
+            <rdg wit="#P">πιπεροτρίφτας.</rdg>
+          </app></l>
+        <l n="195"> Ἀλλὰ τί τοῦτο ὅτι ἐπαινῶ <app>
+            <rdg wit="#M #A #K #C #G #S">τοὺς χειροτεχναρίους,</rdg>
+            <rdg wit="#P">τοὺς χεροτεχναρίους</rdg>
+          </app>
+        </l>
+        <l n="196">
+          <app>
+            <rdg wit="#G #P #K">ἀλλ’ <app>
+                <rdg wit="#G">ὡς</rdg>
+                <rdg wit="#P #K">ὡς γὰρ</rdg>
+              </app>
+              <app>
+                <rdg wit="#P #G">θεωρῶ</rdg>
+                <rdg wit="#K">θαρῶ</rdg>
+              </app> τὰ πράγματα</rdg>
+            <rdg wit="#S #C #A #M">πρὸς ὃ θεωρῶ εἰς τὰ γράμματα,</rdg>
+          </app> τὴν εὐτυχίαν ἣν ἔχω,</l>
+        <l n="197"> καὶ τὰς <app>
+            <rdg wit="#M #A #C #S #P">κεντούκλας</rdg>
+            <rdg wit="#G #K">κεντήκλας</rdg>
+          </app> νὰ <app>
+            <rdg wit="#S #C #A #M #P">ἔπαιρον</rdg>
+            <rdg wit="#G">ἔμαθα</rdg>
+            <rdg wit="#K">ἔπαιρναν</rdg>
+          </app> καὶ τὸ ψωμὶν νὰ ἐζήτουν.</l>
+        <l n="197-1"><app>
+            <rdg wit="#P #K">κηπουρικὴν πολύκαρπον <app>
+                <rdg wit="#P">νἀργάζουμουν</rdg>
+                <rdg wit="#K">ἐργάζεσθαι</rdg>
+              </app> τὴν τέχνην,</rdg>
+          </app>
+        </l>
+        <l n="197-2"><app>
+            <rdg wit="#P">συκίτσια καὶ ροδάκινα, ροδίτσια ’μυγδαλίτσια,</rdg>
+            <rdg wit="#K">πιτσάκια, ροδάκινα, μηλίτσια καὶ ροδίτσια,</rdg>
+          </app>
+        </l>
+        <l n="197-3"><app>
+            <rdg wit="#P #K"><app>
+                <rdg wit="#P">δαμασκηναπιδόμηλα,</rdg>
+                <rdg wit="#K">δαμνασκοαπιδόμηλα</rdg>
+              </app> δαμάσκηνα κροκάτα,</rdg>
+          </app>
+        </l>
+        <l n="197-4"><app>
+            <rdg wit="#P #K">τὰ λέγουν ἀνατολικά, τὰ λέγουν λαγηνάτα,</rdg>
+          </app>
+        </l>
+        <l n="197-5"><app>
+            <rdg wit="#P #K">καὶ ἄλλα τὰ τῶν κηπουρῶν, σκόρδα καὶ κρομμυδίτσια,</rdg>
+          </app>
+        </l>
+        <l n="197-6"><app>
+            <rdg wit="#P">ματζάνας, λαχανόγουλα, κραμπία καὶ σευκλογούλια,</rdg>
+            <rdg wit="#K">μελιτζάνας, λαχανόγουλα, κραμβία καὶ σευγλίτσια,</rdg>
+          </app>
+        </l>
+        <l n="197-7"><app>
+            <rdg wit="#P">καὶ κὰν ψωμὶν ὁ κηπουρὸς νὰ <app>
+                <rdg wit="#P">χόρταινα καὶ γούλας,</rdg>
+                <rdg wit="#K">χορταίνει καὶ χλεμπόνας</rdg>
+              </app></rdg>
+          </app>
+        </l>
+        <l n="197-8">
+          <app>
+            <rdg wit="#P">καὶ μουχτερὸν ὁ κηπουρὸς ἔχει καὶ τρέφει τοῦτο</rdg>
+            <rdg wit="#K">καὶ μοχθηρόν ὁ κηπουρὸς ἔχει καὶ τρέφει τοῦτον</rdg>
+          </app>
+        </l>
+        <l n="197-9">
+          <app>
+            <rdg wit="#P">καὶ θρέφει καὶ τὸν κηπουρὸν καὶ μουχτερὸν ὁ κῆπος</rdg>
+          </app>
+        </l>
+        <l n="197-10">
+          <app>
+            <rdg wit="#P">παστελοπούλης, καρυδὰς κανναβοσησαμάτος,</rdg>
+            <rdg wit="#K">παστελοπούλης, καρδατάς καρδατοσησαμάτος</rdg>
+          </app>
+        </l>
+        <l n="197-11">
+          <app>
+            <rdg wit="#P #K">καὶ <app>
+                <rdg wit="#P">δαυκοψήστης</rdg>
+                <rdg wit="#K">δικαιψίτης</rdg>
+              </app> ρεπανάς, <app>
+                <rdg wit="#P">σευκλογουλὰς</rdg>
+                <rdg wit="#K">σευλογουλάς</rdg>
+              </app> ἂν ἤμουν </rdg>
+          </app>
+        </l>
+        <l n="197-12"><app>
+            <rdg wit="#P #K">τὰ καρυδάτα, ἀρχόντισσες, ἐδῶ τὰ <app>
+                <rdg wit="#K">καρυδάτα,</rdg>
+                <rdg wit="#P">σησαμάτα,</rdg>
+              </app>
+            </rdg>
+          </app></l>
+        <l n="197-14">
+          <app>
+            <rdg wit="#P">καὶ νά ’χασιν τὰ χείλη μου κὰν γλυκασμὸν ὀλίγον</rdg>
+          </app>
+        </l>
+        <l n="197-15">
+          <app>
+            <rdg wit="#P #K">τὴν ναυτικὴν <app>
+                <rdg wit="#P">πολύκοπον νὰ ’ργάζουμουν</rdg>
+                <rdg wit="#K">πολύκερδον ἐργάζεσθαι</rdg>
+              </app> τὴν τέχνην,</rdg>
+          </app>
+        </l>
+        <l n="197-16">
+          <app>
+            <rdg wit="#P">νὰ μετερχόμην πέραμαν, νά ’βρισκα ὀκάτι κέρδος</rdg>
+            <rdg wit="#K">ἂν μετερχόμην κὰν ποσῶς νὰ ηὕρισκα τὸ κέρδος,</rdg>
+          </app>
+        </l>
+        <l n="197-17">
+          <app>
+            <rdg wit="#P #K">ὡς <app>
+                <rdg wit="#P">κωπηλάτης</rdg>
+                <rdg wit="#K">κωπολάτης</rdg>
+              </app> πρότερον, δεύτερος ὡς πλωρίτης,</rdg>
+          </app>
+        </l>
+        <l n="197-18">
+          <app>
+            <rdg wit="#P">νὰ γένουμουν καὶ ναύκλερος καὶ νά ’χα μέγαν κέρδος.</rdg>
+            <rdg wit="#K">τάξιν λαβεῖν κυβερνητῶν κέρδος καλὸν νὰ εἶχα.</rdg>
+          </app>
+        </l>
+        <l n="198"> Γείτοναν ἔχω κοσκινάν, φάλσωμαν μᾶς χωρίζει,</l>
+        <l n="199"> ἀπ’ αὔτους ὁποὺ ’σπήγουσιν κατὰ κάμπον ματσούκαν,</l>
+        <l n="200"> ὅταν ἐκβοῦν καὶ τρέχουσιν αἱ δύο αἱ καροῦχαι, (200) </l>
+        <l n="201"> καὶ βλέπω τὴν ἰστίαν του πῶς συχνοφλακαρίζει,</l>
+        <l n="202"> καὶ πῶς πολλάκις τῶν κρεῶν ἀπολυόντων τσίκναν,</l>
+        <l n="203"> ποτὲ δὲ τὴν ἀνθρακιὰν τὴν φοβερὰν ἐκείνην</l>
+        <l n="204"> κειμένην βλέπω, βασιλεῦ, μετὰ τῶν ὀψαρίων</l>
+        <l n="205"> καὶ τσίκναν φέρουσαν πολλὴν μετὰ καὶ τῶν βρωμάτων, (205) </l>
+        <l n="206"> καὶ ἐγὼ τσικνώνω διὰ ψωμὶν καὶ οὐκ ἔχω το νὰ φάγω,</l>
+        <l n="207"> ζητῶ καὶ οὐδὲν μὲ δίδουσιν, λέγουν με »περιπάτει,</l>
+        <l n="208"> γραμματικὸν σὲ βλέπομεν τετρακαλαμαράτον,</l>
+        <l n="209"> καὶ τρώγε μυριοεμπύρετος καὶ ἀπὸ τὰ γράμματά σου,</l>
+        <l n="210"> ἔκβαλε τὰ ἐκκλησιαστικὰ καὶ γίνου προσχεριάρης, (210) </l>
+        <l n="211"> καὶ φόρειε τὸ προσώμιν σου καὶ τὸν πηλὸν κουβάλειε,</l>
+        <l n="212"> καὶ τὰ χαλίκια σύνασε, νὰ ἐπάρῃς τὸν μισθόν σου,</l>
+        <l n="213"> καὶ νὰ χορταίνῃς τὸ ψωμίν, τὸ ἐπιθυμεῖς, ὡς λέγεις.«</l>
+        <l n="214"> Καὶ πίστευσον, βαροῦμαι το, νὰ γένω προσχεριάρης,</l>
+        <l n="215"> ’σπηγοματσούκης, κοσκινὰς κάλλιον τὸ ἔχω νὰ γένω, (215) </l>
+        <l n="216"> τὸ κουβαλεῖν γὰρ τὸν πηλὸν ὡς φορτικὸν ἡγοῦμαι.</l>
+        <l n="217"> Σὺ δὲ πρὸς τοῦτο, βασιλεῦ, τί μοὶ διακελεύεις;</l>
+        <l n="218"> Ἐλπίζω εἰς τὸ κράτος σου, ἵνα μὲ ἐλεήσῃς,</l>
+        <l n="219"> καὶ πάλιν ἐκκλησιαστικὸς διάκονος νὰ γένω,</l>
+        <l n="220"> νὰ εὔχωμαι τὰ σκῆπτρα σου μέσης ἀπὸ καρδίας (220) </l>
+        <l n="221"> σκῆπτρα κρατῆσαι κραταιῶς γῆς πάσης καὶ θαλάσσης.</l>
+        <l n="222"> Ἀπὸ γὰρ τῆς πτωχείας μου καὶ βλασφημῶ καὶ λέγω,</l>
+        <l n="223"> καὶ λέγουν με «σίγα, σαλέ, καὶ μὴ πολλὰ φωνάζῃς,</l>
+        <l n="224"> μήπως καὶ μετὰ θάνατον καταδικάσωσίν σε</l>
+        <l n="225"> εἰς σκώληκα ἀκοίμητον, εἰς τάρταρον τοῦ σκότους.» (225) </l>
+        <l n="226"> Ἐγὼ δέ, κοσμοκράτορ μου, ταύτας τὰς τρεῖς κολάσεις</l>
+        <l n="227"> ἐνταῦθα τὰς κολάζομαι καὶ πρὸ τῆς τελευτῆς μου·</l>
+        <l n="228"> σκώληκα τὸν ἀκοίμητον κέκτημαι τὴν πενίαν,</l>
+        <l n="229"> ἥτις μὲ τρώγει πάντοτε καὶ καταδαπανᾶ με,</l>
+        <l n="230"> τάρταρον τὸν τουρτουρισμόν, τὸν τουρτουρίζω τώρα (230) </l>
+        <l n="231"> ὡς ἐν χειμῶνι παγετός, καὶ τὶ φορεῖν οὐκ ἔχω,</l>
+        <l n="232"> καὶ γὰρ μὴ ἔχων τι φορεῖν μεγάλως τουρτουρίζω,</l>
+        <l n="233"> σκότος δὲ πάλιν ἀφεγγὲς τὸν σκοτασμόν μου κρίνω,</l>
+        <l n="234"> ὃν ἔχω τότε, βασιλεῦ, ὅταν ψωμὶν οὐκ ἔχω,</l>
+        <l n="235"> καὶ γὰρ μὴ ἔχων τι φαγεῖν σκοτίζομαι τῇ πείνῃ· (235) </l>
+        <l n="236"> ἰδοὺ γοῦν σκώληξ, τάρταρος καὶ ἀφεγγὲς τὸ σκότος.</l>
+        <l n="237"> Ἀλλά, κρατάρχα βασιλεῦ τεσσάρων γῆς κλιμάτων,</l>
+        <l n="238"> χάρισον μοὶ τῷ δούλῳ σου μικρὸν τὰς ἀκοάς σου,</l>
+        <l n="239"> ὡς ἵνα καὶ τὸ πρὸ μικροῦ συμβάν μοι σαφηνίσω.</l>
+        <l n="240"> Εἰς τοῦ πατρὸς μου τὸ κελλὶν ἀκρόπαστον ἀπάκιν (240) </l>
+        <l n="241"> σύμπλευρον ἐμαγείρευον, σύλλαρδον, ἐκ τὰ ἐξεύρεις,</l>
+        <l n="242"> καὶ θέντες καὶ τὴν τράπεζαν ἐκάθισαν νὰ φάγουν.</l>
+        <l n="243"> Τούτους ἰδὼν ὁ δοῦλος σου γύροθεν καθημένους,</l>
+        <l n="244"> ὡς εἶχον ἔθος, σὺν αὐτοῖς ἔδραμα συγκαθίσαι,</l>
+        <l n="245"> ἐκεῖνοι δ’ ἐξεπήδησαν λέγοντες ὁμοφώνως· (245) </l>
+        <l n="246"> »Μαθὸν μηδ’ ἄρτι βιάζεσαι ἐλθεῖν καὶ νὰ καθίσῃς,</l>
+        <l n="247"> παπὰς γραμματικός εἰσαι, τρέφε τὸν ἑαυτόν σου,</l>
+        <l n="248"> μὴ βλέπῃς τὸ ἀπάκιν μας, οὐκ ἔνι τοῦ λάρυγγός σου.</l>
+        <l n="249"> Ἂν δὲ πεινᾶς, γραμματικέ, ἀγόρασον καὶ φάγε!«</l>
+        <l n="250"> Τούτων δὴ πρός με, βασιλεῦ, ἁπάντων λεγομένων (250) </l>
+        <l n="251"> ὀκάτι πως ἐγένετο κτύπος εἰς τὸ κατώγαιον,</l>
+        <l n="252"> καὶ πάντες ἐσηκώθησαν, ἐφύγασιν αὐτίκα,</l>
+        <l n="253"> νομίσαντες ὅτι χαλᾶ τοῦτο νὰ τοὺς πλακώσῃ·</l>
+        <l n="254"> ἔνι γὰρ πλεῖστα καὶ πολλὰ πάνυ σεσαθρωμένον.</l>
+        <l n="255"> Ἐγὼ δ’ ὡς ηὗρα κείμενον σύμπλευρον τὸ ἀπάκιν, (255) </l>
+        <l n="256"> ἠρξάμην συλλογίζεσθαι καθ’ ἑαυτὸν καὶ λέγειν:</l>
+        <l n="257"> οὐκ εἶμαι αὐτός, ὃν ἔλεγον, οὐκ ἔνι τοῦ λάρυγγός σου;</l>
+        <l n="258"> Ἀλλ’ ἴδε τὴν ἀσύγκριτον τοῦ θεανθρώπου κρίσιν,</l>
+        <l n="259"> πῶς εὐσυγκρίτως ἔφερε τὸ ἀπάκιν εἰς ἐμένα.</l>
+        <l n="260"> Ταῦτα δὲ λέγων, βασιλεῦ, τὴν μάχαιραν κρατήσας (260) </l>
+        <l n="261"> ἠρξάμην ἐμβουκώνεσθαι μέχρι τοῦ ἐλθεῖν εἰς κόρον.</l>
+        <l n="262"> Μετὰ δὲ ταῦτα, βασιλεῦ, κάτω κἀγὼ κατῆλθον,</l>
+        <l n="263"> τάχα γυρεύειν σὺν αὐτοῖς, πόθεν ὁ κτύπος ἦτον,</l>
+        <l n="264"> πρότερον τὸ κατούδιν μας στήσας εἰς τὸ τραπέζιν,</l>
+        <l n="265"> διὰ τὸ νὰ εἰποῦν ὅτι ἐποίησεν ἐκεῖνο τὴν ζημίαν. (265) </l>
+        <l n="266"> Ἅπαντες δὲ μετὰ μικρὸν τῇ κέλλῃ προσελθόντες,</l>
+        <l n="267"> τὸ δὲ κατούδιν βλέψαντες ἄνωθεν τῆς τραπέζης,</l>
+        <l n="268"> ἔριψαν λίθον κατ’ αὐτοῦ λέγοντες »σκοτωθήτω,</l>
+        <l n="269"> ὅτι ἔφαγε τὸ θαυμαστὸν ἀκρόπαστον ἀπάκιν.«</l>
+        <l n="270"> Ὕστερον δὲ τὴν μηχανὴν εὐστόχως ἐπιγνόντες, (270) </l>
+        <l n="271"> ὀλίγον μειδιάσαντες ἐξεῖπον ὁμοφώνως·</l>
+        <l n="272"> »Ἰδὲ ὁ παπὰς ὁποὺ ἔφαγεν τὸ ἀκρόπαστον ἀπάκιν</l>
+        <l n="273"> καὶ ἡμεῖς ἐκατεμπλέκαμεν τὸ πονηρὸν κατούδιν.«</l>
+        <l n="274"> Ἀλλ’ ὦ κομνηνοβλάστητον ἀπὸ πορφύρας ρόδον,</l>
+        <l n="275"> βασιλευόντων βασιλεῦ καὶ τῶν ἀνάκτων ἄναξ, (275) </l>
+        <l n="276"> καὶ κράτος τὸ τρισκράτιστον μητρόθεν καὶ πατρόθεν,</l>
+        <l n="277"> εἰσάκουσόν μου τῆς φωνῆς καὶ τῆς δεήσεώς μου,</l>
+        <l n="278"> θύραν ἐλέους ἄνοιξον καὶ χείραν πάρασχέ μοι</l>
+        <l n="279"> ἀνάγουσαν ἐκ βόθρου με, λάκκου τοῦ τῆς πενίας.</l>
+        <l n="280"> Σὺ γὰρ ἐλέους οἰκτιρμῶν μετὰ θεὸν ἡ θύρα, (280) </l>
+        <l n="281"> σὺ μόνος ὑπερασπιστὴς τῶν ἐν ἀνάγκαις βίου,</l>
+        <l n="282"> καὶ σὺ τὸ καταφύγιον πάντων τῶν χριστωνύμων,</l>
+        <l n="283"> σὺ βασιλέων βασιλεὺς καὶ πάντων σὺ δεσπότης,</l>
+        <l n="284"> ρῦσαι με τῆς στερήσεως, ρῦσαι με τῆς πενίας,</l>
+        <l n="285"> τῶν δανειστῶν μου, βασιλεῦ, λῦσον τὰς ἀπαιτήσεις, (285) </l>
+        <l n="286"> οὐδὲ γὰρ φέρειν δύναμαι τὰς τούτων κατακρίσεις,</l>
+        <l n="287"> τοὺς τέσσαρας προβάλλομαι, θεόστεπτε, μεσίτας,</l>
+        <l n="288"> τοὺς μαρτυρήσαντες στερρῶς ὑπὲρ Χριστοῦ τοῦ λόγου,</l>
+        <l n="289"> Γεώργιον, Δημήτριον, Τήρωνα, Στρατηλάτην,</l>
+        <l n="290"> οἳ καὶ συνταξιδεύσουσιν ἐν πᾶσι ταξιδίοις</l>
+        <l n="291"> καὶ συνοδοιπορήσουσιν τῇ σῇ θεοστεφίᾳ.</l>
+      </div>
+    </body>
+  </text>
+</TEI>
