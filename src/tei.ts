@@ -3,6 +3,44 @@ import type { AstNode } from "./types";
 export interface RenderCtx {
   witness: string;
   showSic: boolean;
+  dictLinks: boolean;
+}
+
+// Kriaras' online dictionary of medieval Greek vernacular literature wants the
+// word lowercase with all accents/breathings stripped, e.g. "δέσποτα" -> "δεσποτα".
+function stripAccents(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .normalize("NFC")
+    .replace(/ς/g, "σ");
+}
+
+function kriarasUrl(word: string): string {
+  const lq = stripAccents(word.toLowerCase());
+  return `https://www.greek-language.gr/greekLang/medieval_greek/kriaras/search.html?lq=${encodeURIComponent(lq)}`;
+}
+
+const WORD_RE = /[\p{L}’]+/gu;
+
+/** Splits a text run into plain text + <a> links to the dictionary, one per word. */
+function appendLinkedText(container: HTMLElement, text: string): void {
+  let last = 0;
+  for (const match of text.matchAll(WORD_RE)) {
+    const word = match[0];
+    const start = match.index ?? 0;
+    if (start > last) container.append(text.slice(last, start));
+    const a = h("a", {
+      class: "dict-link",
+      href: kriarasUrl(word),
+      target: "_blank",
+      rel: "noopener",
+    });
+    a.textContent = word;
+    container.append(a);
+    last = start + word.length;
+  }
+  if (last < text.length) container.append(text.slice(last));
 }
 
 function h<K extends keyof HTMLElementTagNameMap>(
@@ -63,7 +101,11 @@ export function renderLine(lineNode: AstNode, ctx: RenderCtx): HTMLElement {
 function renderInto(container: HTMLElement, nodes: AstNode[], ctx: RenderCtx): void {
   for (const node of nodes) {
     if (node.t === "text") {
-      container.append(node.v);
+      if (ctx.dictLinks) {
+        appendLinkedText(container, node.v);
+      } else {
+        container.append(node.v);
+      }
       continue;
     }
     switch (node.tag) {

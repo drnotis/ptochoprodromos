@@ -11,6 +11,7 @@ interface State {
   poemIndex: number;
   witness: string;
   showSic: boolean;
+  dictLinks: boolean;
   query: string;
   mode: Mode;
   compare: string[];
@@ -34,6 +35,7 @@ function parseHash(): { state: Partial<State>; n: string | null } {
   const poem = poems[partial.poemIndex ?? 0];
   if (params.has("witness")) partial.witness = params.get("witness")!;
   if (params.has("sic")) partial.showSic = params.get("sic") === "1";
+  if (params.has("dict")) partial.dictLinks = params.get("dict") === "1";
   const mode = params.get("mode");
   if (mode === "single" || mode === "synoptic") partial.mode = mode;
   if (params.has("compare")) {
@@ -57,6 +59,7 @@ function serializeHash(s: State, n?: string): string {
     params.set("witness", s.witness);
   }
   if (s.showSic) params.set("sic", "1");
+  if (s.dictLinks) params.set("dict", "1");
   return "#" + params.toString();
 }
 
@@ -72,6 +75,7 @@ const state: State = {
   poemIndex: fromHash.poemIndex ?? 0,
   witness: fromHash.witness ?? initialPoem.defaultWitness,
   showSic: fromHash.showSic ?? false,
+  dictLinks: fromHash.dictLinks ?? false,
   query: "",
   mode: fromHash.mode ?? "single",
   compare: fromHash.compare ?? defaultCompare(initialPoem),
@@ -98,7 +102,11 @@ interface SearchEntry {
 const searchIndex: SearchEntry[] = [];
 poems.forEach((poem, poemIndex) => {
   poem.lines.forEach((line, lineIndex) => {
-    const rendered = renderLine(line.node, { witness: poem.defaultWitness, showSic: false });
+    const rendered = renderLine(line.node, {
+      witness: poem.defaultWitness,
+      showSic: false,
+      dictLinks: false,
+    });
     searchIndex.push({ poemIndex, lineIndex, n: line.n, text: rendered.textContent ?? "" });
   });
 });
@@ -211,6 +219,16 @@ function render(focusN?: string | null): void {
   sicLabel.append(sicCheckbox, " εμφάνιση γραφής χειρογράφου (πριν τη διόρθωση)");
   controls.append(sicLabel);
 
+  const dictLabel = el("label", { class: "sic-toggle" });
+  const dictCheckbox = el("input", { type: "checkbox" }) as HTMLInputElement;
+  dictCheckbox.checked = state.dictLinks;
+  dictCheckbox.addEventListener("change", () => {
+    state.dictLinks = dictCheckbox.checked;
+    render();
+  });
+  dictLabel.append(dictCheckbox, " σύνδεσμοι λέξεων προς το λεξικό Κριαρά");
+  controls.append(dictLabel);
+
   app.append(controls);
 
   if (poem.witnesses.length > 1) {
@@ -258,7 +276,13 @@ function buildSingle(poem: Poem): HTMLElement {
     const row = el("div", { class: "line", id: `l-${state.poemIndex}-${idx}` });
     row.append(permalinkButton(line.n));
     row.append(el("span", { class: "line-n" }, line.n));
-    row.append(renderLine(line.node, { witness: state.witness, showSic: state.showSic }));
+    row.append(
+      renderLine(line.node, {
+        witness: state.witness,
+        showSic: state.showSic,
+        dictLinks: state.dictLinks,
+      }),
+    );
     linesWrap.append(row);
   });
   return linesWrap;
@@ -284,7 +308,9 @@ function buildSynoptic(poem: Poem): HTMLElement {
     row.append(nCell);
     state.compare.forEach((id) => {
       const cell = el("td", { class: "col-text" });
-      cell.append(renderLine(line.node, { witness: id, showSic: state.showSic }));
+      cell.append(
+        renderLine(line.node, { witness: id, showSic: state.showSic, dictLinks: state.dictLinks }),
+      );
       row.append(cell);
     });
     tbody.append(row);
