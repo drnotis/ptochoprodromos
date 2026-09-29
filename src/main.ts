@@ -18,6 +18,7 @@ interface State {
   mode: Mode;
   compare: string[];
   kwicQuery: string;
+  kwicClickable: boolean;
 }
 
 function defaultCompare(poem: Poem): string[] {
@@ -37,6 +38,7 @@ function parseHash(): { state: Partial<State>; n: string | null } {
   const partial: Partial<State> = {};
   if (params.get("view") === "kwic") partial.view = "kwic";
   if (params.has("q")) partial.kwicQuery = params.get("q")!;
+  if (params.has("wc")) partial.kwicClickable = params.get("wc") === "1";
   if (poemId) partial.poemIndex = poemIndexById(poemId);
   const poem = poems[partial.poemIndex ?? 0];
   if (params.has("witness")) partial.witness = params.get("witness")!;
@@ -58,6 +60,7 @@ function serializeHash(s: State, n?: string): string {
     const params = new URLSearchParams();
     params.set("view", "kwic");
     if (s.kwicQuery) params.set("q", s.kwicQuery);
+    if (!s.kwicClickable) params.set("wc", "0");
     return "#" + params.toString();
   }
   const poem = poems[s.poemIndex];
@@ -93,6 +96,7 @@ const state: State = {
   mode: fromHash.mode ?? "single",
   compare: fromHash.compare ?? defaultCompare(initialPoem),
   kwicQuery: fromHash.kwicQuery ?? "",
+  kwicClickable: fromHash.kwicClickable ?? true,
 };
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -417,6 +421,17 @@ function buildKwic(): HTMLElement {
   input.value = state.kwicQuery;
   wrap.append(input);
 
+  const clickableLabel = el("label", { class: "sic-toggle" });
+  const clickableCheckbox = el("input", { type: "checkbox" }) as HTMLInputElement;
+  clickableCheckbox.checked = state.kwicClickable;
+  clickableCheckbox.addEventListener("change", () => {
+    state.kwicClickable = clickableCheckbox.checked;
+    syncHash();
+    run();
+  });
+  clickableLabel.append(clickableCheckbox, " κάθε λέξη οδηγεί σε νέα αναζήτηση");
+  wrap.append(clickableLabel);
+
   const count = el("div", { class: "kwic-count" });
   wrap.append(count);
 
@@ -458,14 +473,44 @@ function buildKwic(): HTMLElement {
         `Ποίημα ${m.poemIndex + 1}, στ. ${m.n}`,
       );
       ref.addEventListener("click", () => jumpTo(m));
-      row.append(
-        ref,
-        el("span", { class: "kwic-left", title: m.left }, m.left),
-        el("span", { class: "kwic-key" }, m.keyword),
-        el("span", { class: "kwic-right", title: m.right }, m.right),
-      );
+
+      const leftEl = el("span", { class: "kwic-left", title: m.left });
+      appendKwicWords(leftEl, m.left);
+      const keyEl = el("span", { class: "kwic-key" });
+      appendKwicWords(keyEl, m.keyword);
+      const rightEl = el("span", { class: "kwic-right", title: m.right });
+      appendKwicWords(rightEl, m.right);
+
+      row.append(ref, leftEl, keyEl, rightEl);
       rows.append(row);
     });
+  }
+
+  function searchWord(word: string): void {
+    input.value = word;
+    run();
+    input.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function appendKwicWords(container: HTMLElement, text: string): void {
+    if (!state.kwicClickable) {
+      container.append(text);
+      return;
+    }
+    let last = 0;
+    for (const m of text.matchAll(WORD_RE)) {
+      const word = m[0];
+      const start = m.index ?? 0;
+      if (start > last) container.append(text.slice(last, start));
+      const span = el("span", { class: "kwic-word" }, word);
+      span.addEventListener("click", (e) => {
+        e.stopPropagation();
+        searchWord(word);
+      });
+      container.append(span);
+      last = start + word.length;
+    }
+    if (last < text.length) container.append(text.slice(last));
   }
 
   input.addEventListener("input", run);

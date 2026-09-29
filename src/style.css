@@ -173,6 +173,16 @@ body {
   white-space: nowrap;
 }
 
+.kwic-word {
+  cursor: pointer;
+  border-bottom: 1px dotted transparent;
+}
+
+.kwic-word:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .poem-tabs {
   display: flex;
   gap: 0.4rem;
