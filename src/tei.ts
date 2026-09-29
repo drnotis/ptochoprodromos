@@ -8,7 +8,7 @@ export interface RenderCtx {
 
 // Kriaras' online dictionary of medieval Greek vernacular literature wants the
 // word lowercase with all accents/breathings stripped, e.g. "δέσποτα" -> "δεσποτα".
-function stripAccents(s: string): string {
+export function stripAccents(s: string): string {
   return s
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")

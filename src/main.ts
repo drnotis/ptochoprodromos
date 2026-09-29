@@ -1,13 +1,15 @@
 import "./style.css";
 import poemsData from "./data/poems.json";
 import type { Poem } from "./types";
-import { renderLine, attachTooltips } from "./tei";
+import { renderLine, attachTooltips, stripAccents } from "./tei";
 
 const poems = poemsData as Poem[];
 
 type Mode = "single" | "synoptic";
+type View = "read" | "kwic";
 
 interface State {
+  view: View;
   poemIndex: number;
   witness: string;
   showSic: boolean;
@@ -15,6 +17,7 @@ interface State {
   query: string;
   mode: Mode;
   compare: string[];
+  kwicQuery: string;
 }
 
 function defaultCompare(poem: Poem): string[] {
@@ -27,10 +30,13 @@ function poemIndexById(id: string): number {
 }
 
 // --- URL hash (deep links): #poem=poem2&n=57&witness=H&sic=0&mode=single&compare=G,H
+// or #view=kwic&q=δεσποτα
 function parseHash(): { state: Partial<State>; n: string | null } {
   const params = new URLSearchParams(location.hash.replace(/^#/, ""));
   const poemId = params.get("poem");
   const partial: Partial<State> = {};
+  if (params.get("view") === "kwic") partial.view = "kwic";
+  if (params.has("q")) partial.kwicQuery = params.get("q")!;
   if (poemId) partial.poemIndex = poemIndexById(poemId);
   const poem = poems[partial.poemIndex ?? 0];
   if (params.has("witness")) partial.witness = params.get("witness")!;
@@ -48,6 +54,12 @@ function parseHash(): { state: Partial<State>; n: string | null } {
 }
 
 function serializeHash(s: State, n?: string): string {
+  if (s.view === "kwic") {
+    const params = new URLSearchParams();
+    params.set("view", "kwic");
+    if (s.kwicQuery) params.set("q", s.kwicQuery);
+    return "#" + params.toString();
+  }
   const poem = poems[s.poemIndex];
   const params = new URLSearchParams();
   params.set("poem", poem.id);
@@ -72,6 +84,7 @@ const { state: fromHash, n: initialFocusLine } = parseHash();
 const initialPoem = poems[fromHash.poemIndex ?? 0] ?? poems[0];
 
 const state: State = {
+  view: fromHash.view ?? "read",
   poemIndex: fromHash.poemIndex ?? 0,
   witness: fromHash.witness ?? initialPoem.defaultWitness,
   showSic: fromHash.showSic ?? false,
@@ -79,6 +92,7 @@ const state: State = {
   query: "",
   mode: fromHash.mode ?? "single",
   compare: fromHash.compare ?? defaultCompare(initialPoem),
+  kwicQuery: fromHash.kwicQuery ?? "",
 };
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -92,14 +106,21 @@ function witnessLabel(poem: Poem, id: string): string {
   return w ? `${w.id} — ${w.label}` : id;
 }
 
-// Precompute a flattened search index (default witness, corrections applied) once.
+// Precompute a flattened search index and a per-poem token stream (both from
+// the default witness, corrections applied) once.
 interface SearchEntry {
   poemIndex: number;
   lineIndex: number;
   n: string;
   text: string;
 }
+interface KwicToken {
+  n: string;
+  word: string;
+}
+const WORD_RE = /[\p{L}’]+/gu;
 const searchIndex: SearchEntry[] = [];
+const kwicTokens: KwicToken[][] = poems.map(() => []);
 poems.forEach((poem, poemIndex) => {
   poem.lines.forEach((line, lineIndex) => {
     const rendered = renderLine(line.node, {
@@ -107,9 +128,44 @@ poems.forEach((poem, poemIndex) => {
       showSic: false,
       dictLinks: false,
     });
-    searchIndex.push({ poemIndex, lineIndex, n: line.n, text: rendered.textContent ?? "" });
+    const text = rendered.textContent ?? "";
+    searchIndex.push({ poemIndex, lineIndex, n: line.n, text });
+    for (const m of text.matchAll(WORD_RE)) {
+      kwicTokens[poemIndex].push({ n: line.n, word: m[0] });
+    }
   });
 });
+
+interface KwicMatch {
+  poemIndex: number;
+  n: string;
+  left: string;
+  keyword: string;
+  right: string;
+}
+const KWIC_CONTEXT = 6;
+
+function findKwicMatches(query: string): KwicMatch[] {
+  const nq = stripAccents(query.trim().toLowerCase());
+  if (!nq) return [];
+  const results: KwicMatch[] = [];
+  poems.forEach((_poem, poemIndex) => {
+    const toks = kwicTokens[poemIndex];
+    toks.forEach((t, i) => {
+      if (!stripAccents(t.word.toLowerCase()).includes(nq)) return;
+      const left = toks
+        .slice(Math.max(0, i - KWIC_CONTEXT), i)
+        .map((x) => x.word)
+        .join(" ");
+      const right = toks
+        .slice(i + 1, i + 1 + KWIC_CONTEXT)
+        .map((x) => x.word)
+        .join(" ");
+      results.push({ poemIndex, n: t.n, left, keyword: t.word, right });
+    });
+  });
+  return results;
+}
 
 function render(focusN?: string | null): void {
   const poem = currentPoem();
@@ -129,6 +185,27 @@ function render(focusN?: string | null): void {
     el("p", { class: "subtitle" }, "Διαδραστική παράλληλη έκδοση των τριών ποιημάτων"),
   );
   app.append(header);
+
+  const viewTabs = el("nav", { class: "view-tabs" });
+  (
+    [
+      ["read", "Ανάγνωση"],
+      ["kwic", "Συμφραστικός πίνακας (KWIC)"],
+    ] as [View, string][]
+  ).forEach(([v, label]) => {
+    const btn = el("button", { class: "view-tab" + (state.view === v ? " active" : "") }, label);
+    btn.addEventListener("click", () => {
+      state.view = v;
+      render();
+    });
+    viewTabs.append(btn);
+  });
+  app.append(viewTabs);
+
+  if (state.view === "kwic") {
+    app.append(buildKwic());
+    return;
+  }
 
   const tabs = el("nav", { class: "poem-tabs" });
   poems.forEach((p, i) => {
@@ -318,6 +395,82 @@ function buildSynoptic(poem: Poem): HTMLElement {
   table.append(tbody);
   outer.append(table);
   return outer;
+}
+
+function buildKwic(): HTMLElement {
+  const wrap = el("div", { class: "kwic" });
+  wrap.append(
+    el(
+      "p",
+      { class: "kwic-lede" },
+      "Βρες μια λέξη (ή τμήμα λέξης) και δες όλες τις εμφανίσεις της και στα τρία ποιήματα, με το ",
+      "συμφραστικό της περιβάλλον. Η αναζήτηση αγνοεί τόνους/πνεύματα και κεφαλαία/πεζά. (κείμενο βασικού χειρογράφου ανά ποίημα)",
+    ),
+  );
+
+  const input = el("input", {
+    type: "search",
+    class: "kwic-input",
+    placeholder: "π.χ. δέσποτα, θάλασσα, γυναικός…",
+    "aria-label": "Λέξη-κλειδί",
+  }) as HTMLInputElement;
+  input.value = state.kwicQuery;
+  wrap.append(input);
+
+  const count = el("div", { class: "kwic-count" });
+  wrap.append(count);
+
+  const rows = el("div", { class: "kwic-rows" });
+  wrap.append(rows);
+
+  function jumpTo(m: KwicMatch) {
+    state.view = "read";
+    state.poemIndex = m.poemIndex;
+    state.witness = poems[m.poemIndex].defaultWitness;
+    state.mode = "single";
+    render(m.n);
+  }
+
+  function run(): void {
+    state.kwicQuery = input.value;
+    syncHash();
+    rows.innerHTML = "";
+    const query = input.value.trim();
+    if (!query) {
+      count.textContent = "";
+      return;
+    }
+    const matches = findKwicMatches(query);
+    if (matches.length === 0) {
+      count.textContent = "Καμία εμφάνιση.";
+      return;
+    }
+    const shown = matches.slice(0, 300);
+    count.textContent =
+      matches.length > shown.length
+        ? `${matches.length} εμφανίσεις (εμφανίζονται οι πρώτες ${shown.length})`
+        : `${matches.length} εμφανίσεις`;
+    shown.forEach((m) => {
+      const row = el("div", { class: "kwic-row" });
+      const ref = el(
+        "button",
+        { class: "kwic-ref", title: poems[m.poemIndex].heading || poems[m.poemIndex].title },
+        `Ποίημα ${m.poemIndex + 1}, στ. ${m.n}`,
+      );
+      ref.addEventListener("click", () => jumpTo(m));
+      row.append(
+        ref,
+        el("span", { class: "kwic-left", title: m.left }, m.left),
+        el("span", { class: "kwic-key" }, m.keyword),
+        el("span", { class: "kwic-right", title: m.right }, m.right),
+      );
+      rows.append(row);
+    });
+  }
+
+  input.addEventListener("input", run);
+  run();
+  return wrap;
 }
 
 function buildSearch(): HTMLElement {
