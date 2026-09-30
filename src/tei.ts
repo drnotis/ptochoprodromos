@@ -4,6 +4,8 @@ export interface RenderCtx {
   witness: string;
   showSic: boolean;
   dictLinks: boolean;
+  kwicLinks: boolean;
+  onKwicWord?: (word: string) => void;
 }
 
 // Kriaras' online dictionary of medieval Greek vernacular literature wants the
@@ -38,6 +40,26 @@ function appendLinkedText(container: HTMLElement, text: string): void {
     });
     a.textContent = word;
     container.append(a);
+    last = start + word.length;
+  }
+  if (last < text.length) container.append(text.slice(last));
+}
+
+/** Splits a text run into plain text + clickable spans that jump to the KWIC view. */
+function appendKwicClickableText(
+  container: HTMLElement,
+  text: string,
+  onWord: (word: string) => void,
+): void {
+  let last = 0;
+  for (const match of text.matchAll(WORD_RE)) {
+    const word = match[0];
+    const start = match.index ?? 0;
+    if (start > last) container.append(text.slice(last, start));
+    const span = h("span", { class: "kwic-nav-word" });
+    span.textContent = word;
+    span.addEventListener("click", () => onWord(word));
+    container.append(span);
     last = start + word.length;
   }
   if (last < text.length) container.append(text.slice(last));
@@ -101,7 +123,9 @@ export function renderLine(lineNode: AstNode, ctx: RenderCtx): HTMLElement {
 function renderInto(container: HTMLElement, nodes: AstNode[], ctx: RenderCtx): void {
   for (const node of nodes) {
     if (node.t === "text") {
-      if (ctx.dictLinks) {
+      if (ctx.kwicLinks && ctx.onKwicWord) {
+        appendKwicClickableText(container, node.v, ctx.onKwicWord);
+      } else if (ctx.dictLinks) {
         appendLinkedText(container, node.v);
       } else {
         container.append(node.v);

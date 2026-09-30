@@ -14,6 +14,7 @@ interface State {
   witness: string;
   showSic: boolean;
   dictLinks: boolean;
+  kwicLinks: boolean;
   query: string;
   mode: Mode;
   compare: string[];
@@ -44,6 +45,7 @@ function parseHash(): { state: Partial<State>; n: string | null } {
   if (params.has("witness")) partial.witness = params.get("witness")!;
   if (params.has("sic")) partial.showSic = params.get("sic") === "1";
   if (params.has("dict")) partial.dictLinks = params.get("dict") === "1";
+  if (params.has("kw")) partial.kwicLinks = params.get("kw") === "1";
   const mode = params.get("mode");
   if (mode === "single" || mode === "synoptic") partial.mode = mode;
   if (params.has("compare")) {
@@ -75,6 +77,7 @@ function serializeHash(s: State, n?: string): string {
   }
   if (s.showSic) params.set("sic", "1");
   if (s.dictLinks) params.set("dict", "1");
+  if (s.kwicLinks) params.set("kw", "1");
   return "#" + params.toString();
 }
 
@@ -92,6 +95,7 @@ const state: State = {
   witness: fromHash.witness ?? initialPoem.defaultWitness,
   showSic: fromHash.showSic ?? false,
   dictLinks: fromHash.dictLinks ?? false,
+  kwicLinks: fromHash.kwicLinks ?? false,
   query: "",
   mode: fromHash.mode ?? "single",
   compare: fromHash.compare ?? defaultCompare(initialPoem),
@@ -131,6 +135,7 @@ poems.forEach((poem, poemIndex) => {
       witness: poem.defaultWitness,
       showSic: false,
       dictLinks: false,
+      kwicLinks: false,
     });
     const text = rendered.textContent ?? "";
     searchIndex.push({ poemIndex, lineIndex, n: line.n, text });
@@ -305,10 +310,22 @@ function render(focusN?: string | null): void {
   dictCheckbox.checked = state.dictLinks;
   dictCheckbox.addEventListener("change", () => {
     state.dictLinks = dictCheckbox.checked;
+    if (state.dictLinks) state.kwicLinks = false;
     render();
   });
   dictLabel.append(dictCheckbox, " σύνδεσμοι λέξεων προς το λεξικό Κριαρά");
   controls.append(dictLabel);
+
+  const kwicLinkLabel = el("label", { class: "sic-toggle" });
+  const kwicLinkCheckbox = el("input", { type: "checkbox" }) as HTMLInputElement;
+  kwicLinkCheckbox.checked = state.kwicLinks;
+  kwicLinkCheckbox.addEventListener("change", () => {
+    state.kwicLinks = kwicLinkCheckbox.checked;
+    if (state.kwicLinks) state.dictLinks = false;
+    render();
+  });
+  kwicLinkLabel.append(kwicLinkCheckbox, " σύνδεσμοι λέξεων προς τον συμφραστικό πίνακα (KWIC)");
+  controls.append(kwicLinkLabel);
 
   app.append(controls);
 
@@ -351,6 +368,12 @@ function permalinkButton(n: string): HTMLElement {
   return btn;
 }
 
+function goToKwic(word: string): void {
+  state.view = "kwic";
+  state.kwicQuery = word;
+  render();
+}
+
 function buildSingle(poem: Poem): HTMLElement {
   const linesWrap = el("div", { class: "lines" });
   poem.lines.forEach((line, idx) => {
@@ -362,6 +385,8 @@ function buildSingle(poem: Poem): HTMLElement {
         witness: state.witness,
         showSic: state.showSic,
         dictLinks: state.dictLinks,
+        kwicLinks: state.kwicLinks,
+        onKwicWord: goToKwic,
       }),
     );
     linesWrap.append(row);
@@ -390,7 +415,13 @@ function buildSynoptic(poem: Poem): HTMLElement {
     state.compare.forEach((id) => {
       const cell = el("td", { class: "col-text" });
       cell.append(
-        renderLine(line.node, { witness: id, showSic: state.showSic, dictLinks: state.dictLinks }),
+        renderLine(line.node, {
+          witness: id,
+          showSic: state.showSic,
+          dictLinks: state.dictLinks,
+          kwicLinks: state.kwicLinks,
+          onKwicWord: goToKwic,
+        }),
       );
       row.append(cell);
     });

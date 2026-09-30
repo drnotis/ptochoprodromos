@@ -512,6 +512,17 @@ table.synoptic tr:hover .permalink {
   background: #f1e6d8;
 }
 
+.kwic-nav-word {
+  cursor: pointer;
+  border-bottom: 1px dotted var(--muted);
+}
+
+.kwic-nav-word:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: #f1e6d8;
+}
+
 .void {
   color: var(--border);
   cursor: help;
