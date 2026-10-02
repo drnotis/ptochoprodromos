@@ -131,6 +131,7 @@ const searchIndex: SearchEntry[] = [];
 const kwicTokens: KwicToken[][] = poems.map(() => []);
 poems.forEach((poem, poemIndex) => {
   poem.lines.forEach((line, lineIndex) => {
+    if (line.apparatus) return; // apparatus-only verses are not part of the edited text
     const rendered = renderLine(line.node, {
       witness: poem.defaultWitness,
       showSic: false,
@@ -378,7 +379,10 @@ function buildSingle(poem: Poem): HTMLElement {
   const linesWrap = el("div", { class: "lines" });
   poem.lines.forEach((line, idx) => {
     if (line.folio) linesWrap.append(el("div", { class: "folio-break" }, `fol. ${line.folio}`));
-    const row = el("div", { class: "line", id: `l-${state.poemIndex}-${idx}` });
+    const row = el("div", {
+      class: "line" + (line.apparatus ? " apparatus-line" : ""),
+      id: `l-${state.poemIndex}-${idx}`,
+    });
     row.append(permalinkButton(line.n));
     row.append(el("span", { class: "line-n" }, line.n));
     row.append(

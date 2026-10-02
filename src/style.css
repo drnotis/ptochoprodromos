@@ -591,3 +591,16 @@ table.synoptic tr:hover .permalink {
   font-size: 0.72rem;
   color: var(--muted);
 }
+
+.apparatus-line {
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.app-sigla {
+  font-family: system-ui, sans-serif;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}

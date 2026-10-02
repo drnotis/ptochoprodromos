@@ -18,6 +18,10 @@ const XML_DIR = path.join(ROOT, "data", "xml");
 const OUT_FILE = path.join(ROOT, "src", "data", "poems.json");
 
 // refLabel: how the poem is cited in the KWIC table.
+// editionText: the file gives one edited text plus an apparatus, not parallel
+// witnesses; the sigla are listed in the notes instead of being selectable.
+// apparatusVerses: lines numbered N-M are apparatus-only verses (found in some
+// manuscripts, not in the edited text) and are shown as such.
 // apparatusAsNotes: the file prints the editor's text inline and gives the
 // manuscript's deviating reading as a single <app><rdg> after the word. That
 // rdg replaces the word before it, so it is shown as a footnote marker, not
@@ -26,6 +30,15 @@ const SOURCES = [
   { file: "ptocho1.xml", id: "poem1", defaultWitness: "G", refLabel: "Ποίημα 1" },
   { file: "ptocho2.xml", id: "poem2", defaultWitness: "G", refLabel: "Ποίημα 2" },
   { file: "ptocho3.xml", id: "poem3", defaultWitness: "Eid", refLabel: "Ποίημα 3" },
+  {
+    file: "ptocho4.xml",
+    id: "poem4",
+    defaultWitness: "Eid",
+    refLabel: "Ποίημα 4",
+    heading: "Ἕτεροι στίχοι Ἱλαρίωνος μοναχοῦ τοῦ Πτωχοπροδρόμου",
+    editionText: true,
+    apparatusVerses: true,
+  },
   {
     file: "majuri.xml",
     id: "majuri",
@@ -146,6 +159,17 @@ function appsToNotes(nodes) {
   });
 }
 
+/** Children of an apparatus-only verse: one <reading> per <rdg>, with its sigla. */
+function apparatusVerseNodes(children) {
+  const readings = findAllEls({ children }, "rdg").map((r) => ({
+    t: "el",
+    tag: "reading",
+    attrs: { wit: normWitIds(r.attrs.wit).join(" ") },
+    children: r.children,
+  }));
+  return [{ t: "el", tag: "appverse", attrs: {}, children: readings }];
+}
+
 async function buildPoem({
   file,
   id,
@@ -154,6 +178,8 @@ async function buildPoem({
   heading: headingOverride,
   apparatusAsNotes,
   witnessNote,
+  editionText,
+  apparatusVerses,
 }) {
   const xml = await readFile(path.join(XML_DIR, file), "utf8");
   const parsed = parser.parse(xml).map(transform).filter(Boolean);
@@ -168,18 +194,13 @@ async function buildPoem({
   const pubStmt = findEl(fileDesc.children, "publicationStmt");
   const pubNote = pubStmt ? textOf(pubStmt) : "";
 
-  const editorialDecl = findEl(header.children, "editorialDecl");
-  let editorialNotes = editorialDecl
-    ? findAllEls(editorialDecl, "p").map(textOf)
-    : [];
-  if (!editorialNotes.length) {
-    // no editorialDecl: fall back to source description and licence
-    const sourceDesc = findEl(fileDesc.children, "sourceDesc");
-    editorialNotes = [
-      ...(sourceDesc ? findAllEls(sourceDesc, "p") : []),
-      ...(pubStmt ? findAllEls(pubStmt, "availability").flatMap((a) => findAllEls(a, "p")) : []),
-    ].map(paraText);
-  }
+  const editorialDecl = findAllEls(header, "editorialDecl")[0]; // lives inside <encodingDesc>
+  const sourceDesc = findEl(fileDesc.children, "sourceDesc");
+  const editorialNotes = [
+    ...(editorialDecl ? findAllEls(editorialDecl, "p").map(textOf) : []),
+    ...(sourceDesc ? findAllEls(sourceDesc, "p").map(paraText) : []),
+    ...(pubStmt ? findAllEls(pubStmt, "availability").flatMap((a) => findAllEls(a, "p")).map(paraText) : []),
+  ];
 
   // listWit normally sits in the header; some files keep it in the body
   let witnessEls = findAllEls(header, "witness");
@@ -227,16 +248,23 @@ async function buildPoem({
 
   // Lines in document order; a folio milestone is attached to the next line.
   const lines = [];
+  const titulusNotes = [];
   let pendingFolio = null;
   (function walk(node) {
     for (const c of node.children ?? []) {
       if (c.t !== "el") continue;
       if (c.tag === "milestone" && c.attrs.unit === "folio") {
         pendingFolio = c.attrs.n ?? null;
+      } else if (c.tag === "note" && c.attrs.n === "titulus") {
+        titulusNotes.push(textOf(c));
       } else if (c.tag === "l") {
-        const children = apparatusAsNotes ? appsToNotes(c.children) : c.children;
+        const n = c.attrs.n ?? "";
+        const isAppVerse = apparatusVerses && /^\d+-\d+$/.test(n);
+        let children = apparatusAsNotes ? appsToNotes(c.children) : c.children;
+        if (isAppVerse) children = apparatusVerseNodes(c.children);
         lines.push({
-          n: c.attrs.n ?? "",
+          n,
+          ...(isAppVerse ? { apparatus: true } : {}),
           ...(pendingFolio ? { folio: pendingFolio } : {}),
           node: { t: "el", tag: "l", attrs: {}, children },
         });
@@ -247,6 +275,23 @@ async function buildPoem({
     }
   })(bodyEl);
 
+  let outWitnesses = witnesses;
+  if (editionText) {
+    const sigla = witnesses
+      .filter((w) => w.id !== defaultWitness)
+      .map((w) => (w.label !== w.id ? `${w.id} = ${w.label}` : `${w.id} (χωρίς περιγραφή στην πηγή)`));
+    editorialNotes.push(`Σίγλα του κριτικού υπομνήματος (†): ${sigla.join(" · ")}.`);
+    outWitnesses = [
+      {
+        id: defaultWitness,
+        label: "Eideneier (έκδοση)",
+        date: "",
+        note: "Το κείμενο της έκδοσης Eideneier· το κριτικό υπόμνημα εμφανίζεται ως † σε κάθε στίχο.",
+      },
+    ];
+  }
+  for (const t of titulusNotes) editorialNotes.push(`Τίτλος, κριτικό υπόμνημα: ${t}`);
+
   return {
     id,
     refLabel,
@@ -255,7 +300,7 @@ async function buildPoem({
     pubNote,
     editorialNotes,
     defaultWitness,
-    witnesses,
+    witnesses: outWitnesses,
     lines,
   };
 }

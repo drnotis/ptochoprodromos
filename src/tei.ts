@@ -191,6 +191,17 @@ function renderInto(container: HTMLElement, nodes: AstNode[], ctx: RenderCtx): v
         container.append(sup);
         break;
       }
+      case "appverse": {
+        const span = h("span", { class: "app-verse" });
+        node.children.forEach((r, i) => {
+          if (r.t !== "el") return;
+          if (i > 0) span.append(" · ");
+          span.append(h("span", { class: "app-sigla" }, r.attrs.wit), " ");
+          renderInto(span, r.children, ctx);
+        });
+        container.append(span);
+        break;
+      }
       case "quote": {
         container.append("«");
         renderInto(container, node.children, ctx);

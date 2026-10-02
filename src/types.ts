@@ -12,6 +12,7 @@ export interface Witness {
 export interface Line {
   n: string;
   folio?: string;
+  apparatus?: boolean;
   node: AstNode;
 }
 
