@@ -191,7 +191,7 @@ function render(focusN?: string | null): void {
   header.append(
     credit,
     el("h1", {}, "Ηλεκτρονικός Πτωχοπρόδρομος"),
-    el("p", { class: "subtitle" }, "Διαδραστική παράλληλη έκδοση των τριών ποιημάτων"),
+    el("p", { class: "subtitle" }, "Διαδραστική παράλληλη έκδοση των ποιημάτων"),
   );
   app.append(header);
 
@@ -377,6 +377,7 @@ function goToKwic(word: string): void {
 function buildSingle(poem: Poem): HTMLElement {
   const linesWrap = el("div", { class: "lines" });
   poem.lines.forEach((line, idx) => {
+    if (line.folio) linesWrap.append(el("div", { class: "folio-break" }, `fol. ${line.folio}`));
     const row = el("div", { class: "line", id: `l-${state.poemIndex}-${idx}` });
     row.append(permalinkButton(line.n));
     row.append(el("span", { class: "line-n" }, line.n));
@@ -438,7 +439,7 @@ function buildKwic(): HTMLElement {
     el(
       "p",
       { class: "kwic-lede" },
-      "Βρες μια λέξη (ή τμήμα λέξης) και δες όλες τις εμφανίσεις της και στα τρία ποιήματα, με το ",
+      "Βρες μια λέξη (ή τμήμα λέξης) και δες όλες τις εμφανίσεις της και σε όλα τα ποιήματα, με το ",
       "συμφραστικό της περιβάλλον. Η αναζήτηση αγνοεί τόνους/πνεύματα και κεφαλαία/πεζά. (κείμενο βασικού χειρογράφου ανά ποίημα)",
     ),
   );
@@ -501,7 +502,7 @@ function buildKwic(): HTMLElement {
       const ref = el(
         "button",
         { class: "kwic-ref", title: poems[m.poemIndex].heading || poems[m.poemIndex].title },
-        `Ποίημα ${m.poemIndex + 1}, στ. ${m.n}`,
+        `${poems[m.poemIndex].refLabel}, στ. ${m.n}`,
       );
       ref.addEventListener("click", () => jumpTo(m));
 

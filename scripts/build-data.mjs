@@ -17,10 +17,25 @@ const ROOT = path.resolve(__dirname, "..");
 const XML_DIR = path.join(ROOT, "data", "xml");
 const OUT_FILE = path.join(ROOT, "src", "data", "poems.json");
 
+// refLabel: how the poem is cited in the KWIC table.
+// apparatusAsNotes: the file prints the editor's text inline and gives the
+// manuscript's deviating reading as a single <app><rdg> after the word. That
+// rdg replaces the word before it, so it is shown as a footnote marker, not
+// as a parallel reading (which would duplicate the word).
 const SOURCES = [
-  { file: "ptocho1.xml", id: "poem1", defaultWitness: "G" },
-  { file: "ptocho2.xml", id: "poem2", defaultWitness: "G" },
-  { file: "ptocho3.xml", id: "poem3", defaultWitness: "Eid" },
+  { file: "ptocho1.xml", id: "poem1", defaultWitness: "G", refLabel: "Ποίημα 1" },
+  { file: "ptocho2.xml", id: "poem2", defaultWitness: "G", refLabel: "Ποίημα 2" },
+  { file: "ptocho3.xml", id: "poem3", defaultWitness: "Eid", refLabel: "Ποίημα 3" },
+  {
+    file: "majuri.xml",
+    id: "majuri",
+    defaultWitness: "V",
+    refLabel: "Ποίημα Majuri",
+    heading: "Τοῦ φιλοσόφου τοῦ Προδρόμου στίχοι δεητήριοι (ποίημα Majuri)",
+    apparatusAsNotes: true,
+    witnessNote:
+      "Το κείμενο είναι αυτό της έκδοσης Majuri· οι αποκλίσεις του χειρογράφου σημειώνονται με †.",
+  },
 ];
 
 const parser = new XMLParser({
@@ -99,7 +114,47 @@ function collectWitnessIdsUsed(root, set) {
   }
 }
 
-async function buildPoem({ file, id, defaultWitness }) {
+/** Paragraph text; adds a space where an inline element runs straight into the next word. */
+function paraText(p) {
+  let out = "";
+  for (const c of p.children) {
+    const piece = textOf(c);
+    if (out && !/[\s(«]$/.test(out) && /^\p{L}/u.test(piece) && c.t === "text") out += " ";
+    out += piece;
+  }
+  return out.replace(/\s+/g, " ").trim();
+}
+
+/** Replace every <app> by a <note> carrying the manuscript's reading. */
+function appsToNotes(nodes) {
+  return nodes.map((n) => {
+    if (n.t !== "el") return n;
+    if (n.tag === "app") {
+      const rdg = n.children.find((c) => c.t === "el" && c.tag === "rdg");
+      const sigla = normWitIds(rdg?.attrs.wit).join(", ");
+      return {
+        t: "el",
+        tag: "note",
+        attrs: { type: "variant" },
+        children: [
+          { t: "text", v: `Γραφή χφ. ${sigla}: ` },
+          ...appsToNotes(rdg?.children ?? []),
+        ],
+      };
+    }
+    return { ...n, children: appsToNotes(n.children) };
+  });
+}
+
+async function buildPoem({
+  file,
+  id,
+  defaultWitness,
+  refLabel,
+  heading: headingOverride,
+  apparatusAsNotes,
+  witnessNote,
+}) {
   const xml = await readFile(path.join(XML_DIR, file), "utf8");
   const parsed = parser.parse(xml).map(transform).filter(Boolean);
   const teiEl = findEl(parsed, "TEI");
@@ -114,11 +169,21 @@ async function buildPoem({ file, id, defaultWitness }) {
   const pubNote = pubStmt ? textOf(pubStmt) : "";
 
   const editorialDecl = findEl(header.children, "editorialDecl");
-  const editorialNotes = editorialDecl
+  let editorialNotes = editorialDecl
     ? findAllEls(editorialDecl, "p").map(textOf)
     : [];
+  if (!editorialNotes.length) {
+    // no editorialDecl: fall back to source description and licence
+    const sourceDesc = findEl(fileDesc.children, "sourceDesc");
+    editorialNotes = [
+      ...(sourceDesc ? findAllEls(sourceDesc, "p") : []),
+      ...(pubStmt ? findAllEls(pubStmt, "availability").flatMap((a) => findAllEls(a, "p")) : []),
+    ].map(paraText);
+  }
 
-  const witnessEls = findAllEls(header, "witness");
+  // listWit normally sits in the header; some files keep it in the body
+  let witnessEls = findAllEls(header, "witness");
+  if (!witnessEls.length) witnessEls = findAllEls(bodyEl, "witness");
   const witnesses = witnessEls.map((w) => {
     const wid = w.attrs["xml:id"] ?? w.attrs.id ?? "?";
     const dateEl = findEl(w.children, "date");
@@ -127,12 +192,13 @@ async function buildPoem({ file, id, defaultWitness }) {
       .filter((c) => !(c.t === "el" && (c.tag === "date" || c.tag === "desc")))
       .map(textOf)
       .join(" ")
+      .replace(new RegExp(`^\\s*${wid}\\s*=\\s*`), "") // "V = Vaticanus…" -> "Vaticanus…"
       .trim();
     return {
       id: wid,
       label: label || wid,
       date: dateEl ? textOf(dateEl) : "",
-      note: descEl ? textOf(descEl) : "",
+      note: descEl ? textOf(descEl) : wid === defaultWitness ? (witnessNote ?? "") : "",
     };
   });
 
@@ -156,16 +222,34 @@ async function buildPoem({ file, id, defaultWitness }) {
     }
   }
 
-  const headEl = findEl(bodyEl.children, "head");
-  const heading = headEl ? textOf(headEl) : "";
+  const headEl = findAllEls(bodyEl, "head").find((h) => textOf(h) !== "Manuscript information");
+  const heading = headingOverride ?? (headEl ? textOf(headEl) : "");
 
-  const lines = findAllEls(bodyEl, "l").map((l) => ({
-    n: l.attrs.n ?? "",
-    node: { t: "el", tag: "l", attrs: {}, children: l.children },
-  }));
+  // Lines in document order; a folio milestone is attached to the next line.
+  const lines = [];
+  let pendingFolio = null;
+  (function walk(node) {
+    for (const c of node.children ?? []) {
+      if (c.t !== "el") continue;
+      if (c.tag === "milestone" && c.attrs.unit === "folio") {
+        pendingFolio = c.attrs.n ?? null;
+      } else if (c.tag === "l") {
+        const children = apparatusAsNotes ? appsToNotes(c.children) : c.children;
+        lines.push({
+          n: c.attrs.n ?? "",
+          ...(pendingFolio ? { folio: pendingFolio } : {}),
+          node: { t: "el", tag: "l", attrs: {}, children },
+        });
+        pendingFolio = null;
+      } else {
+        walk(c);
+      }
+    }
+  })(bodyEl);
 
   return {
     id,
+    refLabel,
     title,
     heading,
     pubNote,

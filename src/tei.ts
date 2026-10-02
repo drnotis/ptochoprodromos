@@ -191,6 +191,12 @@ function renderInto(container: HTMLElement, nodes: AstNode[], ctx: RenderCtx): v
         container.append(sup);
         break;
       }
+      case "quote": {
+        container.append("«");
+        renderInto(container, node.children, ctx);
+        container.append("»");
+        break;
+      }
       case "hi": {
         const em = h("em", { class: "hi" });
         renderInto(em, node.children, ctx);

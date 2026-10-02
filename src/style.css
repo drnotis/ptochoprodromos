@@ -582,3 +582,12 @@ table.synoptic tr:hover .permalink {
     text-align: center;
   }
 }
+
+.folio-break {
+  margin: 0.5rem 0 0.3rem 3.4rem;
+  padding-top: 0.2rem;
+  border-top: 1px dashed var(--border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+}

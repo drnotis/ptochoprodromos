@@ -11,11 +11,13 @@ export interface Witness {
 
 export interface Line {
   n: string;
+  folio?: string;
   node: AstNode;
 }
 
 export interface Poem {
   id: string;
+  refLabel: string;
   title: string;
   heading: string;
   pubNote: string;
